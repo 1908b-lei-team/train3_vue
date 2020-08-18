@@ -5,6 +5,7 @@ import Test from '@/components/Test'
 import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
+import Withdraw from '@/components/Withdraw'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ export default new Router({
       path: '/BorrowMoney',
       name: 'BorrowMoney',
       component: BorrowMoney,
+    }
+    ,
+    {
+      path: '/Withdraw',
+      name: 'Withdraw',
+      component: Withdraw,
     }
   ]
 })
