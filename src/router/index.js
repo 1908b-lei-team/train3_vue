@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Test from '@/components/Test'
+import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk from '@/components/p2p_llk'
+import RealName from '@/components/RealName'
 
 Vue.use(Router)
 
@@ -23,6 +25,16 @@ export default new Router({
       path: '/p2p_llk',
       name: 'p2p_llk',
       component: p2p_llk
+    },
+    {
+      path: '/RealName',
+      name: 'RealName',
+      component: RealName
+    },
+    {
+      path: '/BorrowMoney',
+      name: 'BorrowMoney',
+      component: BorrowMoney,
     }
   ]
 })

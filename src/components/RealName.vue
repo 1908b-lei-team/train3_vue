@@ -1,15 +1,12 @@
 <template>
     <div>
-      这是ljy测试111
-      11111111111
-      123
-      hsl
+        yhl测试
     </div>
 </template>
 
 <script>
     export default {
-        name: "Test"
+        name: "RealName"
     }
 </script>
 
