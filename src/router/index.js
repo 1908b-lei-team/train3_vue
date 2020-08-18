@@ -36,8 +36,7 @@ export default new Router({
       path: '/BorrowMoney',
       name: 'BorrowMoney',
       component: BorrowMoney,
-    }
-    ,
+    },
     {
       path: '/Withdraw',
       name: 'Withdraw',
