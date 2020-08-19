@@ -7,6 +7,7 @@ import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
+import p2p_llk_video from '@/components/p2p_llk_video'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/RealName',
       name: 'RealName',
       component: RealName
+    },
+    {
+      path: '/p2p_llk_video',
+      name: 'p2p_llk_video',
+      component: p2p_llk_video
     },
     {
       path: '/BorrowMoney',
