@@ -7,6 +7,7 @@ import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
+import Graph from '@/components/Graph'
 
 Vue.use(Router)
 
@@ -46,6 +47,10 @@ export default new Router({
     { path: '/VentureCapital',
       name: 'VentureCapital',
       component: VentureCapital,
+    },
+    { path: '/Graph',
+      name: 'Graph',
+      component: Graph,
     }
   ]
 })
