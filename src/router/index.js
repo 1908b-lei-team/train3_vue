@@ -6,6 +6,9 @@ import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
 import VentureCapital from '@/components/VentureCapital'
+import FirstTrial from '@/components/FirstTrial'
+import RecheckPage from '@/components/RecheckPage'
+import UserInfoPage from '@/components/UserInfoPage'
 
 Vue.use(Router)
 
@@ -41,6 +44,21 @@ export default new Router({
       path: '/VentureCapital',
       name: 'VentureCapital',
       component: VentureCapital,
+    },
+    {
+      path: '/FirstTrial',
+      name: 'FirstTrial',
+      component: FirstTrial,
+    },
+    {
+      path: '/RecheckPage',
+      name: 'RecheckPage',
+      component: RecheckPage,
+    },
+    {
+      path: '/UserInfoPage',
+      name: 'UserInfoPage',
+      component: 'UserInfoPage',
     }
   ]
 })
