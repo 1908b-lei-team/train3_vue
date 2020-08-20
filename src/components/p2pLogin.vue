@@ -32,7 +32,8 @@
         this.$axios.post("/api/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
           if (res.data.code == 200) {
             //登录成功跳转到展示页面
-            self.$router.push("/BorrowMoney")
+            self.$cookie.set('token',res.data.data)
+            console.log(res.data.data)
           }else {
             alert(res.data.data)
           }
