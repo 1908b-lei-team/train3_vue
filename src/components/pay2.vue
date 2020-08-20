@@ -54,7 +54,7 @@
           //查询账户余额
         querygeneralassets(){
           var self = this;
-          this.$axios.post("payApi/pay/querygeneralassets").then(function(res){
+          this.$axios.post("hslApi/pay/querygeneralassets").then(function(res){
             if(res.data.code==200){
               self.generalassets=res.data.data;
             }

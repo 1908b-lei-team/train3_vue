@@ -54,7 +54,7 @@
           } else {
             if (this.account.userName !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/account/checkUserName",this.$qs.stringify({"userName":this.account.userName})).then(function (res) {
+              this.$axios.post("/api/accountApi/account/checkUserName",this.$qs.stringify({"userName":this.account.userName})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
@@ -72,7 +72,7 @@
           } else {
             if (this.account.idNumber !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/account/checkIdNumber",this.$qs.stringify({"userName":this.account.idNumber})).then(function (res) {
+              this.$axios.post("/api/accountApi/account/checkIdNumber",this.$qs.stringify({"userName":this.account.idNumber})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
@@ -89,7 +89,7 @@
           } else {
             if (this.account.creditCardNumbers !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/account/checkCreditCardNumbers",this.$qs.stringify({"checkCreditCardNumbers":this.account.creditCardNumbers})).then(function (res) {
+              this.$axios.post("/api/accountApi/account/checkCreditCardNumbers",this.$qs.stringify({"checkCreditCardNumbers":this.account.creditCardNumbers})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
@@ -106,7 +106,7 @@
           } else {
             if (this.account.bankPhone !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/account/checkBankPhone",this.$qs.stringify({"bankPhone":this.account.bankPhone})).then(function (res) {
+              this.$axios.post("/api/accountApi/account/checkBankPhone",this.$qs.stringify({"bankPhone":this.account.bankPhone})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
@@ -183,7 +183,7 @@
           this.$refs[formName].validate((valid) => {
             if (valid) {
               var self = this;
-              this.$axios.post("http://localhost:8085/account/addAccount",this.$qs.stringify(this.account)).then(function (res) {
+              this.$axios.post("/api/accountApi/account/addAccount",this.$qs.stringify(this.account)).then(function (res) {
                 if (res.data.code == 200) {
                   self.$router.push("/")
                 }else {
