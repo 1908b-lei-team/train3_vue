@@ -9,7 +9,9 @@ import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
 import Graph from '@/components/Graph'
 import p2pLogin from '@/components/p2pLogin'
-import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
+import p2p_llk_video from '@/components/p2p_llk_video'
+import Histogram from '@/components/Histogram'
+import Face from '@/components/Face'
 
 Vue.use(Router)
 
@@ -68,6 +70,16 @@ export default new Router({
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
+    },
+    {
+      path: '/Histogram',
+      name: 'Histogram',
+      component: Histogram,
+    },
+    {
+      path: '/Face',
+      name: 'Face',
+      component: Face,
     }
   ]
 })
