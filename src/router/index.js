@@ -10,8 +10,6 @@ import VentureCapital from '@/components/VentureCapital'
 
 import Register from '@/components/Register'
 
-import Login from '@/components/Login1'
-
 import Graph from '@/components/Graph'
 
 import p2p_llk_video from '@/components/p2p_llk_video'
