@@ -11,7 +11,7 @@
         <el-input v-model="member.name" style="width: 260px" ></el-input>
       </el-form-item>
       <el-form-item label="提现方式" style="width: 260px">
-        <el-input v-model="member.name" style="width: 260px" ></el-input>
+        <el-radio v-model="member.name" label="1">备选项</el-radio>
       </el-form-item>
       <el-form-item label="交易密码" style="width: 260px">
         <el-input v-model="member.name" style="width: 260px" ></el-input>

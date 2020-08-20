@@ -13,3 +13,13 @@ yarn-error.log*
 *.njsproj
 *.sln
 package-lock.json
+
+package-lock.json
+*.json
+
+src/components/Register.vue
+src/components/Login.vue
+
+package.json
+package-lock.json
+

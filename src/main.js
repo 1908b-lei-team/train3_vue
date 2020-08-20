@@ -7,6 +7,21 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import QS from 'qs'
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
+//播放器相关
+import VideoPlayer from 'vue-video-player'
+import 'vue-video-player/src/custom-theme.css'
+import 'video.js/dist/video-js.css'
+import VueAxios from 'vue-axios'
+import tracking from 'tracking'
+
+Vue.use(VueAxios, axios, tracking)
+Vue.config.productionTip = false
+Vue.use(VideoPlayer)
+
 Vue.prototype.$axios = axios
 Vue.prototype.$qs = QS
 Vue.use(ElementUI)
