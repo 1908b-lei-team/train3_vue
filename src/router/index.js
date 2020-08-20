@@ -12,6 +12,8 @@ import Register from '@/components/Register'
 
 import Graph from '@/components/Graph'
 
+import p2pLogin from '@/components/p2pLogin'
+
 import p2p_llk_video from '@/components/p2p_llk_video'
 
 Vue.use(Router)
@@ -64,9 +66,9 @@ export default new Router({
       component: Register,
     },
     {
-      path: '/Login',
-      name: 'Login',
-      component: Login,
+      path: '/p2pLogin',
+      name: 'p2pLogin',
+      component: p2pLogin,
     },
     { path: '/Graph',
       name: 'Graph',
