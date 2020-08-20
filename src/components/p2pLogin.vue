@@ -9,7 +9,7 @@
       </el-form-item>
       <el-form-item style="width: 260px" >
         <el-button  size="medium" type="primary" @click="onSubmit">登录</el-button>
-        <el-link type="primary" href="/register">注册</el-link>
+        <el-link type="primary" href="/p2pRegister">注册</el-link>
       </el-form-item>
     </el-form>
   </div>
