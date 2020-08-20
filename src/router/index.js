@@ -16,6 +16,8 @@ import Graph from '@/components/Graph'
 
 import p2p_llk_video from '@/components/p2p_llk_video'
 
+import Face from '@/components/Face'
+
 Vue.use(Router)
 
 export default new Router({
@@ -73,6 +75,10 @@ export default new Router({
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
+    },
+    { path: '/Face',
+      name: 'Face',
+      component: Face,
     }
   ]
 })
