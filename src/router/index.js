@@ -5,15 +5,23 @@ import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
 import Account from '@/components/Account'
+import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-import Register from '@/components/Register'
-import Graph from '@/components/Graph'
+
+import Pay from '@/components/Pay'
+import Pay1 from '@/components/Pay1'
+import Pay2 from '@/components/Pay2'
+import Pay3 from '@/components/Pay3'
+
+import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
-import Histogram from '@/components/Histogram'
+import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+
+
 
 Vue.use(Router)
 
@@ -41,6 +49,11 @@ export default new Router({
       component: Account
     },
     {
+      path: '/SecurityCenter',
+      name: 'SecurityCenter',
+      component: SecurityCenter
+    },
+    {
       path: '/p2p_llk_video',
       name: 'p2p_llk_video',
       component: p2p_llk_video
@@ -59,10 +72,23 @@ export default new Router({
       name: 'VentureCapital',
       component: VentureCapital,
     },
-    {
-      path: '/Register',
-      name: 'Register',
-      component: Register,
+
+    { path: '/Pay',
+      name: 'Pay',
+      component: Pay,
+    },
+    { path: '/Pay1',
+      name: 'Pay1',
+      component: Pay1,
+    },
+    { path: '/Pay2',
+      name: 'Pay2',
+      component: Pay2,
+    }
+    ,
+    { path: '/Pay3',
+      name: 'Pay3',
+      component: Pay3,
     },
     {
       path: '/p2pLogin',
@@ -87,6 +113,7 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
+
     }
   ]
 })

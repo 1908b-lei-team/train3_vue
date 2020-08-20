@@ -1,13 +1,40 @@
 <template>
   <div>
-  <div id="myCharts" ref="myCharts"  :style="{width: '700px', height: '300px'}"></div>
-  <div id="main" style="width: 600px;height: 400px;"></div>
+    <div style="float: left">
+      <div id="main" style="width: 700px;height: 300px;"></div>
+    </div>
+
+    <div style="float: left;width: 500px;height: 250px;margin-bottom: 50px" >
+    <div style="float: left;width: 300px;margin-bottom: 50px">
+      累计注册会员 <font style="color: blue;font-size: 35px">24</font>人
+    </div>
+      <div style="float: left">
+        放款项目数量 <font style="color: blue;font-size: 35px">46</font>个
+      </div>
+
+      <div style="float: left;width: 300px;">
+        放款项目总额 <font style="color: blue;font-size: 20px;font: bold">326.00万</font>元
+      </div>
+      <div style="float: left">
+        待还总额 <font style="color: blue;font-size: 20px">2856.86万</font>元
+      </div>
+    </div>
+
+    <div style="float: left;margin-top: 100px">
+      <div id="myCharts" ref="myCharts"  :style="{width: '700px', height: '300px'}"></div>
+    </div>
+
+    <div style="float: left">
+      <histogram></histogram>
+    </div>
   </div>
 </template>
 
 <script>
+  import Histogram from './Histogram'
   import echarts from 'echarts'
     export default {
+      components:{Histogram},
         name: "Graph",
       data () {
         return {
