@@ -8,16 +8,10 @@ import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
 import Register from '@/components/Register'
-<<<<<<< HEAD
 import Graph from '@/components/Graph'
-=======
-
-import Graph from '@/components/Graph'
-
 import p2pLogin from '@/components/p2pLogin'
-
->>>>>>> 91b977163937045c69f73ed9a3ba7cc51374b2b5
 import p2p_llk_video from '@/components/p2p_llk_video'
+import Histogram from '@/components/Histogram'
 
 Vue.use(Router)
 
@@ -68,17 +62,18 @@ export default new Router({
       name: 'Register',
       component: Register,
     },
-<<<<<<< HEAD
-=======
     {
       path: '/p2pLogin',
       name: 'p2pLogin',
       component: p2pLogin,
     },
->>>>>>> 91b977163937045c69f73ed9a3ba7cc51374b2b5
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
+    },
+    { path: '/Histogram',
+      name: 'Histogram',
+      component: Histogram,
     }
   ]
 })
