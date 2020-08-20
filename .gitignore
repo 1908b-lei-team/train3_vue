@@ -13,5 +13,15 @@ yarn-error.log*
 *.njsproj
 *.sln
 package-lock.json
+<<<<<<< HEAD
 package-lock.json
 *.json
+=======
+<<<<<<< HEAD
+src/components/Register.vue
+src/components/Login.vue
+=======
+package.json
+package-lock.json
+>>>>>>> 614549e45d2a7299cea648a733d4d0fd9541da6c
+>>>>>>> a2ee3a49fe836b66727a89e94050d33634d45597
