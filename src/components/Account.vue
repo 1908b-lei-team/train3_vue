@@ -1,43 +1,45 @@
 <template>
   <div>
-    <el-form :model="account" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
+  <div style="margin-left: 35%;margin-top: 10%">
+    <el-form :model="account" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm" label-width="auto" size="mini">
 
-      <el-form-item label="客户名称" prop="userName" >
-        <el-input v-model="account.userName" placeholder="请输入客户名称"></el-input>
+      <el-form-item label="客户名称" prop="userName" style="width:240px">
+        <el-input v-model="account.userName" placeholder="请输入客户名称" style="width:240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="身份证号码" prop="idNumber" >
-        <el-input v-model="account.idNumber" autocomplete="off" placeholder="请输入身份证号码" ></el-input>
+      <el-form-item label="身份证号码" prop="idNumber" style="width:240px">
+        <el-input v-model="account.idNumber" autocomplete="off" placeholder="请输入身份证号码" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="银行卡号" prop="creditCardNumbers" >
-        <el-input v-model="account.creditCardNumbers" placeholder="请输入客户名称"></el-input>
+      <el-form-item label="银行卡号" prop="creditCardNumbers" style="width:240px">
+        <el-input v-model="account.creditCardNumbers" placeholder="请输入客户名称" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="账户类型" prop="accountType">
+      <el-form-item label="账户类型" prop="accountType" style="width:240px">
         <el-select v-model="account.accountType" placeholder="请选择账户类型">
           <el-option label="投资人" value="INVESTOR"></el-option>
           <el-option label="借款人" value="BORROWER"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item label="手机" prop="bankPhone" >
-        <el-input v-model="account.bankPhone" placeholder="请输入客户名称"></el-input>
+      <el-form-item label="手机" prop="bankPhone" style="width:240px">
+        <el-input v-model="account.bankPhone" placeholder="请输入客户名称" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="交易密码" prop="confirmPassword">
-        <el-input type="password" v-model="account.confirmPassword" autocomplete="off" placeholder="请输入交易密码" ></el-input>
+      <el-form-item label="交易密码" prop="confirmPassword" style="width:240px">
+        <el-input type="password" v-model="account.confirmPassword" autocomplete="off" placeholder="请输入交易密码" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="确认交易密码" prop="checkPass">
-        <el-input type="password" v-model="account.checkPass" autocomplete="off" placeholder="请确认交易密码" ></el-input>
+      <el-form-item label="确认交易密码" prop="checkPass" style="width:240px">
+        <el-input type="password" v-model="account.checkPass" autocomplete="off" placeholder="请确认交易密码" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item>
+      <el-form-item style="width:240px">
         <el-button type="primary" @click="submitForm('ruleForm')">开户</el-button>
       </el-form-item>
 
     </el-form>
+  </div>
   </div>
 </template>
 

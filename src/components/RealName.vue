@@ -1,18 +1,20 @@
 <template>
     <div>
-      <el-form :model="attestation" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
-        <el-form-item label="真实姓名" prop="realName" >
-          <el-input v-model="attestation.realName" placeholder="请输入真实姓名"></el-input>
+      <div style="margin-left: 40%;margin-top: 10%">
+      <el-form :model="attestation" status-icon :rules="rules" ref="ruleForm" label-width="auto" class="demo-ruleForm">
+        <el-form-item label="真实姓名" prop="realName" style="width:240px">
+          <el-input v-model="attestation.realName" placeholder="请输入真实姓名" style="width:240px"></el-input>
         </el-form-item>
 
-        <el-form-item label="身份证号码" prop="idNumber" >
-          <el-input v-model="attestation.idNumber" autocomplete="off" placeholder="请输入身份证号码" ></el-input>
+        <el-form-item label="身份证号码" prop="idNumber" style="width:240px">
+          <el-input v-model="attestation.idNumber" autocomplete="off" placeholder="请输入身份证号码" style="width:240px"></el-input>
         </el-form-item>
 
-        <el-form-item>
+        <el-form-item style="width:240px">
           <el-button type="primary" @click="submitForm('ruleForm')">保存</el-button>
         </el-form-item>
       </el-form>
+      </div>
     </div>
 </template>
 
