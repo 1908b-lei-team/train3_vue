@@ -8,13 +8,14 @@ import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-<<<<<<< HEAD
+
 import Register from '@/components/Register'
+
 import Login from '@/components/Login'
-=======
+
 import Graph from '@/components/Graph'
+
 import p2p_llk_video from '@/components/p2p_llk_video'
->>>>>>> 614549e45d2a7299cea648a733d4d0fd9541da6c
 
 Vue.use(Router)
 
@@ -65,7 +66,6 @@ export default new Router({
       name: 'VentureCapital',
       component: VentureCapital,
     },
-<<<<<<< HEAD
     {
       path: '/Register',
       name: 'Register',
@@ -75,11 +75,10 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login,
-=======
+    },
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
->>>>>>> 614549e45d2a7299cea648a733d4d0fd9541da6c
     }
   ]
 })
