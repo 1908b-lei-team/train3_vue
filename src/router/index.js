@@ -7,13 +7,13 @@ import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-import Register from '@/components/Register'
 import Graph from '@/components/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/Histogram'
 import Face from '@/components/Face'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -60,11 +60,6 @@ export default new Router({
       component: VentureCapital,
     },
     {
-      path: '/Register',
-      name: 'Register',
-      component: Register,
-    },
-    {
       path: '/p2pLogin',
       name: 'p2pLogin',
       component: p2pLogin,
@@ -87,6 +82,12 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
+    }
+    ,
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
     }
   ]
 })

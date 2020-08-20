@@ -135,7 +135,7 @@ export default {
         formData.append("groupId", "101");
         this.scanTip = '登录中，请稍等~'
         alert('开始')
-        axios.post(`http://localhost:8090/faceSearch`, formData)
+        axios.post(`http://localhost:8091/faceSearch`, formData)
           .then(res => {
             alert(res.data.data.name)
             this.$router.push('/home')
