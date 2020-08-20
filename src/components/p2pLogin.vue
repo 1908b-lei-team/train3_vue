@@ -34,7 +34,7 @@
             //登录成功跳转到展示页面
             self.$router.push("/BorrowMoney")
           }else {
-            alert(res.data.data)
+            alert(res.data.data+asdasdasdasdasd)
           }
         })
       },
