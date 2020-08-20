@@ -2,19 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import BorrowMoney from '@/components/BorrowMoney'
-import p2p_llk from '@/components/p2p_llk'
+import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Register from '@/components/Register'
-
-import Login from '@/components/Login'
-
 import Graph from '@/components/Graph'
-
-import p2p_llk_video from '@/components/p2p_llk_video'
+import p2pLogin from '@/components/p2pLogin'
+import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 
 import Face from '@/components/Face'
 
@@ -29,9 +25,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/p2p_llk',
-      name: 'p2p_llk',
-      component: p2p_llk
+      path: '/p2p_llk_calendar',
+      name: 'p2p_llk_calendar',
+      component: p2p_llk_calendar
     },
     {
       path: '/RealName',
@@ -68,9 +64,9 @@ export default new Router({
       component: Register,
     },
     {
-      path: '/Login',
-      name: 'Login',
-      component: Login,
+      path: '/p2pLogin',
+      name: 'p2pLogin',
+      component: p2pLogin,
     },
     { path: '/Graph',
       name: 'Graph',
