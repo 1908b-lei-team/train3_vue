@@ -45,7 +45,7 @@
           } else {
             if (this.attestation.idNumber !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/attestation/checkIdNumber",this.$qs.stringify({"idNumber":this.attestation.idNumber})).then(function (res) {
+                this.$axios.post("http://localhost:8085/attestation/checkIdNumber",this.$qs.stringify({"idNumber":this.attestation.idNumber})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
