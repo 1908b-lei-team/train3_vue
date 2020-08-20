@@ -10,7 +10,7 @@ import VentureCapital from '@/components/VentureCapital'
 import Register from '@/components/Register'
 import Graph from '@/components/Graph'
 import p2pLogin from '@/components/p2pLogin'
-import p2p_llk_video from '@/components/p2p_llk_video'
+import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import Histogram from '@/components/Histogram'
 import Face from '@/components/Face'
 
