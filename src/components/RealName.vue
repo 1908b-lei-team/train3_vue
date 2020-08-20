@@ -63,7 +63,7 @@
           } else {
             if (this.attestation.idNumber !== '') {
               var self = this;
-              this.$axios.post("http://localhost:8085/attestation/checkIdNumber",this.$qs.stringify({"idNumber":this.attestation.idNumber})).then(function (res) {
+              this.$axios.post("/api/accountApi/attestation/checkIdNumber2",this.$qs.stringify({"idNumber":this.attestation.idNumber})).then(function (res) {
                 if (res.data.code == 200) {
                   callback();
                 }else {
@@ -239,7 +239,7 @@
           this.$refs[formName].validate((valid) => {
             if (valid) {
               var self = this;
-              this.$axios.post("http://localhost:8085/attestation/realNameAuthentication",this.$qs.stringify(this.attestation)).then(function (res) {
+              this.$axios.post("/api/accountApi/attestation/realNameAuthentication",this.$qs.stringify(this.attestation)).then(function (res) {
                 if (res.data.code == 200) {
                   self.$router.push("/account")
                 }else {

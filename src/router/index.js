@@ -115,6 +115,5 @@ export default new Router({
       component: Face,
 
     }
-
   ]
 })

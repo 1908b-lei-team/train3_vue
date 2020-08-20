@@ -56,7 +56,7 @@
       </el-table-column>
       <el-table-column
         label="放款时间"
-        width="230">
+        width="160">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.startTime }}</span>
@@ -100,15 +100,15 @@
                      type="success"
                      @click="withdrawDeposit(scope.$index, scope.row)">提现</el-button>
 
-              <a  href="" v-if="scope.row.signGiveStatus=='LOADING_MONEY'"
+              <a v-if="scope.row.signGiveStatus=='LOADING_MONEY'"
                          size="mini"
                          type="success"
-              >账单 (0/9)</a>
+                  @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
 
-          <a href="" v-if="scope.row.signGiveStatus=='YES_THE_MONEY'"
+          <a  v-if="scope.row.signGiveStatus=='YES_THE_MONEY'"
                      size="mini"
                      type="success"
-                    >账单 (0/9)</a>
+             @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
           <a v-if="scope.row.signGiveStatus=='FAILURE'"
              size="mini"
              type="success"
@@ -132,35 +132,116 @@
         </template>
       </el-table-column>
     </el-table>
+    <div v-show="aaaaa">
+      <el-table
+        :data="gridData"
+        style="width: 100%"
+        :show-header="hiddenTableHeader">
+        <el-table-column
+          label="账单编号"
+          width="180">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.billNum }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="期数"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.periodsNum }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="应还本金"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ "￥"+scope.row.prinAndInterest }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="本金"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ "￥"+scope.row.prin }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="利息"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ "￥"+scope.row.interest }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="到期时间"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.expireTime }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="还款时间"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.trueTime }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="状态"
+          width="110">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.status.replace("HAS_ALSO","已还").replace("TO_BE_PAID","待还") }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     name: 'BorrowMoney',
+    components: {},
+
     data() {
       return {
-        tableData: []
+        tableData: [],
+        gridData:[],
+        hiddenTableHeader:false,
+        aaaaa:false
       }
     },
     created(){
       this.queryList();
     },
     methods: {
+
+
+      bill(){
+        var self = this;
+        self.hiddenTableHeader=true
+        self.queryBillList();
+        self.aaaaa=true;
+      },
       withdrawDeposit(){
         var self = this;
             self.$router.push("/Withdraw")
       },
       queryList() {
         var self = this;
-        this.$axios.post("/api/controlController/queryList").then(function(res){
+        this.$axios.post("/api/borrowMoneyApi/controlController/queryList").then(function(res){
           if(res.data.code==200){
             self.tableData = res.data.data;
           }
         })
       },
-      handleEdit(index, row) {
-        console.log(index, row);
+      queryBillList() {
+        var self = this;
+        this.$axios.post("/api/borrowMoneyApi/billController/queryBillList").then(function(res){
+          if(res.data.code==200){
+            self.gridData = res.data.data;
+          }
+        })
       },
     }
   }
