@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import BorrowMoney from '@/components/BorrowMoney'
-import p2p_llk from '@/components/p2p_llk'
+import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
@@ -12,6 +12,7 @@ import Graph from '@/components/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk_video'
 import Histogram from '@/components/Histogram'
+import Face from '@/components/Face'
 
 Vue.use(Router)
 
@@ -24,9 +25,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/p2p_llk',
-      name: 'p2p_llk',
-      component: p2p_llk
+      path: '/p2p_llk_calendar',
+      name: 'p2p_llk_calendar',
+      component: p2p_llk_calendar
     },
     {
       path: '/RealName',
@@ -71,9 +72,15 @@ export default new Router({
       name: 'Graph',
       component: Graph,
     },
-    { path: '/Histogram',
+    {
+      path: '/Histogram',
       name: 'Histogram',
       component: Histogram,
+    },
+    {
+      path: '/Face',
+      name: 'Face',
+      component: Face,
     }
   ]
 })
