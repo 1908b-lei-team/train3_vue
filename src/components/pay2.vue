@@ -2,7 +2,7 @@
   <div>
   <el-form ref="form" :model="form" label-width="80px">
     <el-form-item >
-    账户余额 ￥ 10000
+    账户余额 ￥ {{form.generalassets}}
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
@@ -15,7 +15,7 @@
     </el-form-item>
 
     <el-form-item label="出借金额">
-      <el-input type="password" style="width:260px"></el-input>
+      <el-input type="form.paymoney" style="width:260px"></el-input>
     </el-form-item>
     <el-form-item label="交易密码">
       <el-input type="form.dealpassword" style="width:260px"></el-input>
@@ -34,12 +34,33 @@
         name: "pay2",
       data() {
         return {
+          id:"",
           form: {
             dealpassword:"",
+            generalassets:"",
+            paymoney:"",
           }
         }
       },
+
+      created(){
+        //查询账户余额
+        this.id=  this.$route.query.id
+        alert(this.id)
+       this.querygeneralassets();
+      },
       methods: {
+
+          //查询账户余额
+        querygeneralassets(){
+          var self = this;
+          this.$axios.post("payApi/pay/querygeneralassets").then(function(res){
+            if(res.data.code==200){
+              self.generalassets=res.data.data;
+            }
+          })
+        },
+
         onSubmit() {
           console.log('submit!');
         },
@@ -51,7 +72,7 @@
           self.$router.push({
             path: "/Pay",
             query:{
-              id:self.id
+
             }
           })
         }

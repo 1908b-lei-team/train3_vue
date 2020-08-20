@@ -40,7 +40,7 @@
 
     <el-table-column label="操作">
       <template slot-scope="scope">
-        <el-button  size="mini"  @click="cart()" type="warning">立即购买</el-button>
+        <el-button  size="mini"  @click="cart(scope.row.id)" type="warning">立即购买</el-button>
 
       </template>
     </el-table-column>
@@ -58,6 +58,7 @@
       },
       created(){
         this.queryList();
+        this.id=this.$route.query.id;
       },
       methods: {
         queryList(){
@@ -70,15 +71,19 @@
             }
           })
         },
-        cart(){
-          var self =this;
-          self.$router.push({
-            path: "/Pay2",
+
+      //立即购买
+        cart(id){
+          alert(id)
+          this.$router.push({
+            path:'/Pay2',
             query:{
-              id:self.id
+
+              id: id,
             }
           })
         }
+
       }
     }
 </script>
