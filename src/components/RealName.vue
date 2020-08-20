@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div style="margin-left: 40%;margin-top: -30px">
+      <div style="margin-left: 40%;margin-top: 30px">
       <el-form :model="attestation" status-icon :rules="rules" ref="ruleForm" label-width="auto" class="demo-ruleForm">
         <el-form-item label="真实姓名" prop="realName" style="width:240px">
           <el-input v-model="attestation.realName" placeholder="请输入真实姓名" style="width:240px"></el-input>
@@ -203,7 +203,11 @@
           this.$axios.post(`api/face/faceAdd`, formData)
             .then(res => {
               console.log(res.data)
-              alert("添加成功")
+              if(res.data.data == 1000){
+                alert("添加成功")
+              }else{
+                alert(res.data.data)
+              }
               this.flag1 = false;
             }).catch(function (error) {
             console.log(error)
