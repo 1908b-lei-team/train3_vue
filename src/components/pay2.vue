@@ -2,7 +2,7 @@
   <div>
   <el-form ref="form" :model="form" label-width="80px">
     <el-form-item >
-    账户余额 ￥ {{form.generalassets}}
+    账户余额 ￥ {{this.generalassets}}
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
@@ -35,9 +35,9 @@
       data() {
         return {
           id:"",
+          generalassets:"",
           form: {
             dealpassword:"",
-            generalassets:"",
             paymoney:"",
           }
         }
@@ -46,17 +46,16 @@
       created(){
         //查询账户余额
         this.id=  this.$route.query.id
-        alert(this.id)
-       this.querygeneralassets();
+       this.querygeneralassets()
       },
       methods: {
 
           //查询账户余额
         querygeneralassets(){
           var self = this;
-          this.$axios.post("hslApi/pay/querygeneralassets").then(function(res){
+          this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.id})).then(function(res){
             if(res.data.code==200){
-              self.generalassets=res.data.data;
+              self.generalassets=res.data.data
             }
           })
         },
