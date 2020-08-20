@@ -5,12 +5,15 @@ import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
 import Account from '@/components/Account'
+import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-import Graph from '@/components/Graph'
+
+import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
-import Histogram from '@/components/Histogram'
+import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
+import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
 
 
@@ -41,6 +44,11 @@ export default new Router({
       path: '/Account',
       name: 'Account',
       component: Account
+    },
+    {
+      path: '/SecurityCenter',
+      name: 'SecurityCenter',
+      component: SecurityCenter
     },
     {
       path: '/p2p_llk_video',
@@ -76,14 +84,26 @@ export default new Router({
       component: Graph,
     },
     {
+      path: '/p2p_llk_index',
+      name: 'p2p_llk_index',
+      component: p2p_llk_index
+    },
+    {
       path: '/Histogram',
       name: 'Histogram',
       component: Histogram,
     },
     {
       path: '/Face',
-      name: 'Face',
+        name: 'Face',
       component: Face,
     }
+    ,
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
+    }
+
   ]
 })
