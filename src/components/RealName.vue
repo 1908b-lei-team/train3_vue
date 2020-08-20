@@ -15,6 +15,10 @@
         </el-form-item>
       </el-form>
       </div>
+      <div class="layui-inline" style="">
+        <img class="login-img-third" v-on:click="facelogin()" title="人脸识别"
+             src="@/assets/images/login/renlian.jpg"/>
+      </div>
     </div>
 </template>
 
@@ -78,7 +82,6 @@
       },
       methods: {
         submitForm(formName) {
-
           this.$refs[formName].validate((valid) => {
             if (valid) {
               var self = this;
