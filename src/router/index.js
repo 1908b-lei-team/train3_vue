@@ -11,6 +11,7 @@ import Register from '@/components/Register'
 import Graph from '@/components/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
+import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 
 Vue.use(Router)
 
@@ -69,6 +70,11 @@ export default new Router({
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
-    }
+    },
+    {
+      path: '/p2p_llk_index',
+      name: 'p2p_llk_index',
+      component: p2p_llk_index
+    },
   ]
 })
