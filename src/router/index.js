@@ -6,6 +6,8 @@ import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
 import VentureCapital from '@/components/VentureCapital'
+import Register from '@/components/Register'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -41,6 +43,16 @@ export default new Router({
       path: '/VentureCapital',
       name: 'VentureCapital',
       component: VentureCapital,
+    },
+    {
+      path: '/Register',
+      name: 'Register',
+      component: Register,
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
     }
   ]
 })
