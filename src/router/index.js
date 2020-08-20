@@ -88,6 +88,5 @@ export default new Router({
         name: 'Face',
       component: Face,
     }
-
   ]
 })
