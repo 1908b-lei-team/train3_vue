@@ -5,9 +5,16 @@ import Test from '@/components/Test'
 import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk from '@/components/p2p_llk'
 import RealName from '@/components/RealName'
+import Account from '@/components/Account'
+import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
+<<<<<<< HEAD
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+=======
+import Graph from '@/components/Graph'
+import p2p_llk_video from '@/components/p2p_llk_video'
+>>>>>>> 614549e45d2a7299cea648a733d4d0fd9541da6c
 
 Vue.use(Router)
 
@@ -35,15 +42,30 @@ export default new Router({
       component: RealName
     },
     {
+      path: '/Account',
+      name: 'Account',
+      component: Account
+    },
+    {
+      path: '/p2p_llk_video',
+      name: 'p2p_llk_video',
+      component: p2p_llk_video
+    },
+    {
       path: '/BorrowMoney',
       name: 'BorrowMoney',
       component: BorrowMoney,
     },
     {
-      path: '/VentureCapital',
+      path: '/Withdraw',
+      name: 'Withdraw',
+      component: Withdraw
+    },
+    { path: '/VentureCapital',
       name: 'VentureCapital',
       component: VentureCapital,
     },
+<<<<<<< HEAD
     {
       path: '/Register',
       name: 'Register',
@@ -53,6 +75,11 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login,
+=======
+    { path: '/Graph',
+      name: 'Graph',
+      component: Graph,
+>>>>>>> 614549e45d2a7299cea648a733d4d0fd9541da6c
     }
   ]
 })
