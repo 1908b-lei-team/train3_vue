@@ -7,13 +7,8 @@ import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Register from '@/components/Register'
-
-import Login from '@/components/Login'
-
 import Graph from '@/components/Graph'
-
 import p2p_llk_video from '@/components/p2p_llk_video'
 
 Vue.use(Router)
@@ -64,11 +59,6 @@ export default new Router({
       path: '/Register',
       name: 'Register',
       component: Register,
-    },
-    {
-      path: '/Login',
-      name: 'Login',
-      component: Login,
     },
     { path: '/Graph',
       name: 'Graph',
