@@ -1,8 +1,6 @@
 <template>
-  <div>
     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
     <div style="width: 600px;height:400px;"/>
-  </div>
 </template>
 
 <script>
@@ -21,21 +19,21 @@
               }
             },
             legend: {
-              data: ['销量', '库存量']
+              data: ['男', '女']
             },
             xAxis: {
-              data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+              data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
             },
             yAxis: {},
             series: [{
-              name: '销量',
+              name: '男',
               type: 'bar',
               stack: 'vistors',
               barWidth: '60%',
               data: [20, 20, 36, 10, 10, 20]
             },
               {
-                name: '库存量',
+                name: '女',
                 type: 'bar',
                 stack: 'vistors',
                 barWidth: '60%',
