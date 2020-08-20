@@ -10,7 +10,7 @@ import VentureCapital from '@/components/VentureCapital'
 
 import Register from '@/components/Register'
 
-import Login from '@/components/Login'
+import Login from '@/components/Login1'
 
 import Graph from '@/components/Graph'
 
