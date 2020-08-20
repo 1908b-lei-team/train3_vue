@@ -162,7 +162,6 @@
       handleEdit(index, row) {
         console.log(index, row);
       },
-
     }
   }
 </script>
