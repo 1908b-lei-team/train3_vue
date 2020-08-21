@@ -20,6 +20,7 @@ import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+import Login from '@/components/Login'
 
 
 
@@ -113,7 +114,11 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
-
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
     }
   ]
 })
