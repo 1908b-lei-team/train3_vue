@@ -19,10 +19,15 @@ import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+import Index from '@/components/Index'
 
 
 
 Vue.use(Router)
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 export default new Router({
   mode:'history',
@@ -112,6 +117,11 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
+    },
+    {
+      path: '/Index',
+      name: 'Index',
+      component: Index,
     }
   ]
 })
