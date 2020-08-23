@@ -122,11 +122,6 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
-    },
-    {
-      path: '/Login',
-      name: 'Login',
-      component: Login,
     }
   ]
 })
