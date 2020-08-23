@@ -8,21 +8,17 @@ import Account from '@/components/Account'
 import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Pay from '@/components/Pay'
 import Pay1 from '@/components/Pay1'
 import Pay2 from '@/components/Pay2'
 import Pay3 from '@/components/Pay3'
-
 import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
-import Login from '@/components/Login'
-
-
+import Loan from '@/components/Loan'
 
 Vue.use(Router)
 
@@ -116,9 +112,9 @@ export default new Router({
       component: Face,
     },
     {
-      path: '/Login',
-      name: 'Login',
-      component: Login,
+      path: '/Loan',
+      name: 'Loan',
+      component: Loan,
     }
   ]
 })
