@@ -13,7 +13,6 @@ import Pay from '@/components/Pay'
 import Pay1 from '@/components/Pay1'
 import Pay2 from '@/components/Pay2'
 import Pay3 from '@/components/Pay3'
-
 import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
