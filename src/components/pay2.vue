@@ -1,8 +1,8 @@
 <template>
   <div>
-  <el-form ref="form" :model="form" label-width="80px">
+  <el-form ref="pay" :model="pay" label-width="80px">
     <el-form-item >
-    账户余额 ￥ {{form.generalassets}}
+    账户余额 ￥ {{this.generalassets}}
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
@@ -11,14 +11,14 @@
     </el-form-item>
 
     <el-form-item >
-     最多可投 ￥50000
+     最多可投 ￥500000
     </el-form-item>
 
     <el-form-item label="出借金额">
-      <el-input type="form.paymoney" style="width:260px"></el-input>
+      <el-input v-model="pay.loanamount" style="width:260px"></el-input>
     </el-form-item>
     <el-form-item label="交易密码">
-      <el-input type="form.dealpassword" style="width:260px"></el-input>
+      <el-input v-model="pay.dealpassword" style="width:260px"></el-input>
     </el-form-item>
 
     <el-form-item>
@@ -34,11 +34,12 @@
         name: "pay2",
       data() {
         return {
-          id:"",
-          form: {
+
+          generalassets:"",
+          pay: {
             dealpassword:"",
-            generalassets:"",
-            paymoney:"",
+            loanamount:"",
+
           }
         }
       },
@@ -46,33 +47,37 @@
       created(){
         //查询账户余额
         this.id=  this.$route.query.id
-        alert(this.id)
-       this.querygeneralassets();
+       this.querygeneralassets()
       },
       methods: {
 
           //查询账户余额
         querygeneralassets(){
           var self = this;
-          this.$axios.post("hslApi/pay/querygeneralassets").then(function(res){
+          this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.id})).then(function(res){
             if(res.data.code==200){
-              self.generalassets=res.data.data;
+              self.generalassets=res.data.data
             }
           })
         },
 
         onSubmit() {
-          console.log('submit!');
+          var self = this;
+          this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify({"pay":this.pay},{"id":this.id})).then(function(res){
+            if(res.data.code==200){
+            }
+          })
+
         },
         format(percentage) {
           return percentage === 100 ? '满' : `${percentage}%`;
         },
-        gotopay(){
+        gotopay(id){
           var self =this;
           self.$router.push({
             path: "/Pay",
             query:{
-
+              id: id,
             }
           })
         }
