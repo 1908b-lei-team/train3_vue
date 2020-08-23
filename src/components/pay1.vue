@@ -54,11 +54,14 @@
         return {
           tableData:[],
           id:"",
+         /* signid:"",*/
         }
       },
       created(){
         this.queryList();
         this.id=this.$route.query.id;
+       /* this.signid=this.$route.query.signid;*/
+
       },
       methods: {
         queryList(){
@@ -74,11 +77,13 @@
       //立即购买
         cart(id){
           alert(id)
+
           this.$router.push({
             path:'/Pay2',
             query:{
 
               id: id,
+
             }
           })
         }
