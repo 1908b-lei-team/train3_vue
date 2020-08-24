@@ -9,6 +9,7 @@ import VentureCapital from '@/components/VentureCapital'
 import FirstTrial from '@/components/FirstTrial'
 import RecheckPage from '@/components/RecheckPage'
 import UserInfoPage from '@/components/UserInfoPage'
+import PneumaticControlPage from '@/components/PneumaticControlPage'
 
 Vue.use(Router)
 
@@ -58,7 +59,12 @@ export default new Router({
     {
       path: '/UserInfoPage',
       name: 'UserInfoPage',
-      component: 'UserInfoPage',
+      component: UserInfoPage,
+    },
+    {
+      path: '/PneumaticControlPage',
+      name: 'PneumaticControlPage',
+      component: PneumaticControlPage,
     }
   ]
 })
