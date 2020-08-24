@@ -8,7 +8,6 @@ import Account from '@/components/Account'
 import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Pay from '@/components/Pay'
 import Pay1 from '@/components/Pay1'
 import Pay2 from '@/components/Pay2'
@@ -19,6 +18,8 @@ import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+import Loan from '@/components/Loan'
+import Index from '@/components/Index'
 
 
 import p2pRegister from '@/components/p2pRegister'
@@ -27,6 +28,10 @@ import p2pRegister from '@/components/p2pRegister'
 
 
 Vue.use(Router)
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 export default new Router({
   mode:'history',
@@ -121,6 +126,16 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
+    },
+    {
+      path: '/Loan',
+      name: 'Loan',
+      component: Loan,
+    },
+    {
+      path: '/Index',
+      name: 'Index',
+      component: Index,
     }
   ]
 })

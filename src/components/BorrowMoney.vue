@@ -205,6 +205,7 @@
 
     data() {
       return {
+        id:'',
         tableData: [],
         gridData:[],
         hiddenTableHeader:false,

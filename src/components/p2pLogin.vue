@@ -44,7 +44,7 @@
       },
       onSubmit() {
         var self = this;
-        this.$axios.post("/api/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
+        this.$axios.post("/api/loginApi/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
           if (res.data.code == 200) {
             //登录成功跳转到展示页面
             self.$cookie.set('token',res.data.data)

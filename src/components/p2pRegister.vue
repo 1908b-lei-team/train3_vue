@@ -97,7 +97,7 @@
           if (this.member.userphone !== '') {
             //验证账号是否存在
             var self = this;
-            this.$axios.post("/api/userLoginControlle/queryByUserPhone",this.$qs.stringify({"userPhone":this.member.userphone})).then(function (res) {
+            this.$axios.post("/api/loginApi/userLoginControlle/queryByUserPhone",this.$qs.stringify({"userPhone":this.member.userphone})).then(function (res) {
               if (res.data.code == 200) {
                 callback();
               }else {
@@ -222,7 +222,7 @@
           if (valid) {
             var self = this;
             console.log(self.member)
-            this.$axios.post("/api/userLoginControlle/register",this.$qs.stringify(this.member)).then(function (res) {
+            this.$axios.post("/api/loginApi/userLoginControlle/register",this.$qs.stringify(this.member)).then(function (res) {
               if (res.data.code == 200) {
                 self.$router.push("")
               }else {
