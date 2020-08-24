@@ -22,7 +22,6 @@ import Loan from '@/components/Loan'
 import Index from '@/components/Index'
 
 
-
 Vue.use(Router)
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
