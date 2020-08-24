@@ -10,7 +10,7 @@ import QS from 'qs'
 // 引入echarts
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
-
+import Cookies from 'js-cookie'
 //播放器相关
 import VideoPlayer from 'vue-video-player'
 import 'vue-video-player/src/custom-theme.css'
@@ -25,7 +25,7 @@ Vue.use(VideoPlayer)
 Vue.prototype.$axios = axios
 Vue.prototype.$qs = QS
 Vue.use(ElementUI)
-
+Vue.prototype.$cookie = Cookies
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -34,4 +34,16 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+})
+axios.interceptors.request.use(function (config) {
+  var token = Cookies.get('token')
+  config.headers['x-auth'] = token
+  console.log(token)
+  return config
+})
+axios.interceptors.response.use(function (config) {
+  if (config.data.code === 1002) {
+    location.href = '/'
+  }
+  return config
 })

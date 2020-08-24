@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
@@ -8,7 +7,6 @@ import Account from '@/components/Account'
 import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Pay from '@/components/Pay'
 import Pay1 from '@/components/Pay1'
 import Pay2 from '@/components/Pay2'
@@ -19,7 +17,10 @@ import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
 import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+import Loan from '@/components/Loan'
 import Index from '@/components/Index'
+import p2pRegister from '@/components/p2pRegister'
+
 
 
 
@@ -95,6 +96,11 @@ export default new Router({
       component: Pay3,
     },
     {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+    },
+    {
       path: '/p2pLogin',
       name: 'p2pLogin',
       component: p2pLogin,
@@ -117,6 +123,11 @@ export default new Router({
       path: '/Face',
         name: 'Face',
       component: Face,
+    },
+    {
+      path: '/Loan',
+      name: 'Loan',
+      component: Loan,
     },
   ]
 })
