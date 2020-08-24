@@ -1,5 +1,5 @@
 <template>
-  <div class="video-content" style="width: 600px;height: 500px;margin-left: 28%">
+  <div class="video-content" style="width: 700px;height: 500px;margin-left: 28%">
     <div class="video-player-content">
 
       <video-player class="video-player vjs-custom-skin"

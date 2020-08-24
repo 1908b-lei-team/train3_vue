@@ -14,12 +14,12 @@ import Pay3 from '@/components/Pay3'
 import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
-import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
 import Loan from '@/components/Loan'
 import Index from '@/components/Index'
 import p2pRegister from '@/components/p2pRegister'
+import p2p_llk_font from '@/components/p2p_llk/p2p_llk_font'
 
 
 Vue.use(Router)
@@ -108,11 +108,6 @@ export default new Router({
       component: Graph,
     },
     {
-      path: '/p2p_llk_index',
-      name: 'p2p_llk_index',
-      component: p2p_llk_index
-    },
-    {
       path: '/Histogram',
       name: 'Histogram',
       component: Histogram,
@@ -126,6 +121,11 @@ export default new Router({
       path: '/Loan',
       name: 'Loan',
       component: Loan,
+    },
+    {
+      path: '/p2p_llk_font',
+      name: 'p2p_llk_font',
+      component: p2p_llk_font,
     },
   ]
 })
