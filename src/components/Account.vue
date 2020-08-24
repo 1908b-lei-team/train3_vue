@@ -55,7 +55,7 @@
             if (this.account.userName !== '') {
               var self = this;
               this.$axios.post("/api/accountApi/account/checkUserName",this.$qs.stringify({"userName":this.account.userName})).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   callback();
                 }else {
                   callback(new Error('用户已存在'));
@@ -73,7 +73,7 @@
             if (this.account.idNumber !== '') {
               var self = this;
               this.$axios.post("/api/accountApi/account/checkIdNumber",this.$qs.stringify({"userName":this.account.idNumber})).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   callback();
                 }else {
                   callback(new Error('此身份证已绑定其他账户'));
@@ -90,7 +90,7 @@
             if (this.account.creditCardNumbers !== '') {
               var self = this;
               this.$axios.post("/api/accountApi/account/checkCreditCardNumbers",this.$qs.stringify({"checkCreditCardNumbers":this.account.creditCardNumbers})).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   callback();
                 }else {
                   callback(new Error('此银行卡已绑定其他账户'));
@@ -107,7 +107,7 @@
             if (this.account.bankPhone !== '') {
               var self = this;
               this.$axios.post("/api/accountApi/account/checkBankPhone",this.$qs.stringify({"bankPhone":this.account.bankPhone})).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   callback();
                 }else {
                   callback(new Error('此号码已绑定其他账户'));
@@ -184,8 +184,8 @@
             if (valid) {
               var self = this;
               this.$axios.post("/api/accountApi/account/addAccount",this.$qs.stringify(this.account)).then(function (res) {
-                if (res.data.code == 200) {
-                  self.$router.push("/")
+                if (res.data.code == 1000) {
+                  self.$router.push("/SecurityCenter")
                 }else {
                   alert(res.data.data)
                 }

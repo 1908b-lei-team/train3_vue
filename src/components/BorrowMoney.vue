@@ -22,7 +22,7 @@
         label="借款人"
         width="110">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.userId }}</span>
+          <span style="margin-left: 10px">{{ scope.row.loanName }}</span>
         </template>
       </el-table-column>
 
@@ -76,62 +76,58 @@
         <template slot-scope="scope">
           <span style="margin-left: 10px">
             <font style="color: blue;size: 1px">{{
-            scope.row.signGiveStatus
-            .replace("YES_THE_MONEY","已完成")
-            .replace("BREAK_A_LOAN","借款中")
-            .replace("FIRST_TRIAL","初审")
-            .replace("RECHECK","复审")
-            .replace("WAIT_MONEY","待放款")
-            .replace("LOADING_MONEY","还款中")
-            .replace("FAILURE","流标")
-            .replace("NO_CHECK","不通过")
+            scope.row.status
             }}</font></span>
         </template>
       </el-table-column>
-
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <a v-if="scope.row.signGiveStatus=='BREAK_A_LOAN'"
+          <a v-if="scope.row.status=='借款中'"
                      size="mini"
                      type="success"
                     ><font style="color: blue;width: 50%">━━━━━━</font></a>
-          <el-button v-if="scope.row.signGiveStatus=='WAIT_MONEY'"
+          <el-button v-if="scope.row.status=='待放款'"
                      size="mini"
                      type="success"
                      @click="withdrawDeposit(scope.$index, scope.row)">提现</el-button>
 
-              <a v-if="scope.row.signGiveStatus=='LOADING_MONEY'"
+              <a v-if="scope.row.status=='还款中'"
                          size="mini"
                          type="success"
                   @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
 
-          <a  v-if="scope.row.signGiveStatus=='YES_THE_MONEY'"
+          <a  v-if="scope.row.status=='已完成'"
                      size="mini"
                      type="success"
              @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
-          <a v-if="scope.row.signGiveStatus=='FAILURE'"
+          <a v-if="scope.row.status=='流标'"
              size="mini"
              type="success"
             ><font style="color: blue;width: 50%">━━━━━━</font></a>
 
-          <a v-if="scope.row.signGiveStatus=='NO_CHECK'"
+          <a v-if="scope.row.status=='初审未通过'"
              size="mini"
              type="success"
           ><font style="color: blue;width: 50%">━━━━━━</font></a>
 
-          <a v-if="scope.row.signGiveStatus=='FIRST_TRIAL'"
+          <a v-if="scope.row.status=='复审未通过'"
              size="mini"
              type="success"
           ><font style="color: blue;width: 50%">━━━━━━</font></a>
 
-          <a v-if="scope.row.signGiveStatus=='RECHECK'"
+          <a v-if="scope.row.status=='初审中'"
              size="mini"
              type="success"
           ><font style="color: blue;width: 50%">━━━━━━</font></a>
 
+          <a v-if="scope.row.status=='复审中'"
+             size="mini"
+             type="success"
+          ><font style="color: blue;width: 50%">━━━━━━</font></a>
         </template>
       </el-table-column>
     </el-table>
+
     <div v-show="aaaaa">
       <el-table
         :data="gridData"
@@ -224,15 +220,16 @@
         self.queryBillList();
         self.aaaaa=true;
       },
-      withdrawDeposit(){
-        var self = this;
-            self.$router.push("/Withdraw")
+      withdrawDeposit(row){
+        this.$router.push({path:"/Withdraw",query:{'orderNo':row.id}});
       },
       queryList() {
         var self = this;
         this.$axios.post("/api/borrowMoneyApi/controlController/queryList").then(function(res){
           if(res.data.code==200){
-            self.tableData = res.data.data;
+            self.tableData = res.data.data.list;
+          }else {
+
           }
         })
       },
