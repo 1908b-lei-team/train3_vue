@@ -134,16 +134,20 @@ export default {
         formData.append('file', this.imgUrl)
         formData.append("groupId", "101");
         this.scanTip = '登录中，请稍等~'
-        alert('开始')
+        //alert('开始')
         //axios.post(`http://localhost:8091/faceSearch`, formData)
         axios.post(`api/face/face/faceSearch`, formData)
           .then(res => {
-            alert(res.data.data.name)
-            this.$router.push('/home')
+            console.log(res.data)
+            if(res.data.code==1000){
+              alert(res.data.data.name+res.data.data.gender+", 您好！人脸认证通过！")
+              this.$router.push('/index')
+            }else{
+              alert("人脸认证失败通过！")
+            }
           }).catch(function (error) {
-          console.log(error)
+              alert("网络异常，请刷新重试！")
         })
-
         this.close()
       },
 
