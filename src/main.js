@@ -17,7 +17,6 @@ import 'vue-video-player/src/custom-theme.css'
 import 'video.js/dist/video-js.css'
 import VueAxios from 'vue-axios'
 import tracking from 'tracking'
-
 Vue.use(VueAxios, axios, tracking)
 Vue.config.productionTip = false
 Vue.use(VideoPlayer)

@@ -22,8 +22,6 @@ import Index from '@/components/Index'
 import p2pRegister from '@/components/p2pRegister'
 
 
-
-
 Vue.use(Router)
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
@@ -34,7 +32,7 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path: '/',
+      path: '/Index',
       name: 'Index',
       component: Index
     },
