@@ -20,6 +20,10 @@ import Loan from '@/components/Loan'
 import Index from '@/components/Index'
 import p2pRegister from '@/components/p2pRegister'
 import p2p_llk_font from '@/components/p2p_llk/p2p_llk_font'
+import FirstTrial from '@/components/FirstTrial'
+import RecheckPage from '@/components/RecheckPage'
+import UserInfoPage from '@/components/UserInfoPage'
+import PneumaticControlPage from '@/components/PneumaticControlPage'
 
 Vue.use(Router)
 const originalPush = Router.prototype.push
@@ -126,5 +130,25 @@ export default new Router({
       name: 'p2p_llk_font',
       component: p2p_llk_font,
     },
+    {
+      path: '/FirstTrial',
+      name: 'FirstTrial',
+      component: FirstTrial,
+    },
+    {
+      path: '/RecheckPage',
+      name: 'RecheckPage',
+      component: RecheckPage,
+    },
+    {
+      path: '/UserInfoPage',
+      name: 'UserInfoPage',
+      component: UserInfoPage,
+    },
+    {
+      path: '/PneumaticControlPage',
+      name: 'PneumaticControlPage',
+      component: PneumaticControlPage,
+    }
   ]
 })
