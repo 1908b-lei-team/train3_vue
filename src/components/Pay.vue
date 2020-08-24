@@ -47,25 +47,33 @@
         querybalance(){
           var self = this;
           this.$axios.post("api/hslApi/pay/querybalance",this.$qs.stringify({"id":this.pay.id})).then(function(res){
-            if(res.data.code==200){
-              self.balance=res.data.data
+            if(res.data.code==200) {
+              self.balance = res.data.data
+              var self = this;
+
+              this.$axios.post("hslApi/pay/querybalance").then(function (res) {
+                if (res.data.code == 200) {
+                  //alert(res.data.data)
+                  self.balance = res.data.data;
+                }
+              })
             }
-          })
         },
 
 
         //去充值
-        gotop(){
-          var self = this;
-              self.$router.push({
-                path:"/Pay3",
-                query:{
-                  id: self.pay.id,
-                  paymoney: self.pay.paymoney,
+        gotop()
+          {
+            var self = this;
+            self.$router.push({
+              path: "/Pay3",
+              query: {
+                id: self.pay.id,
+                paymoney: self.pay.paymoney,
 
-                }
-              })
-
+              }
+            })
+          }
         },
       }
     }

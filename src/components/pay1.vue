@@ -54,19 +54,17 @@
         return {
           tableData:[],
           id:"",
-         /* signid:"",*/
         }
       },
       created(){
         this.queryList();
         this.id=this.$route.query.id;
-       /* this.signid=this.$route.query.signid;*/
-
       },
       methods: {
         queryList(){
           var self =this;
-          this.$axios.post("api/hslApi/pay/queryList").then(function (res) {
+
+          this.$axios.post("hslApi/pay/queryList").then(function (res) {
             if (res.data.code == 200) {
               //alert(res.data.data)
               self.tableData =  res.data.data;
@@ -77,13 +75,11 @@
       //立即购买
         cart(id){
           alert(id)
-
           this.$router.push({
             path:'/Pay2',
             query:{
 
               id: id,
-
             }
           })
         }

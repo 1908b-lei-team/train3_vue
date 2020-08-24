@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
@@ -8,7 +7,6 @@ import Account from '@/components/Account'
 import SecurityCenter from '@/components/SecurityCenter'
 import Withdraw from '@/components/Withdraw'
 import VentureCapital from '@/components/VentureCapital'
-
 import Pay from '@/components/Pay'
 import Pay1 from '@/components/Pay1'
 import Pay2 from '@/components/Pay2'
@@ -16,12 +14,16 @@ import Pay3 from '@/components/Pay3'
 import Graph from '@/components/patterning/Graph'
 import p2pLogin from '@/components/p2pLogin'
 import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
-import p2p_llk_index from '@/components/p2p_llk/p2p_llk_index'
 import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
+import Loan from '@/components/Loan'
 import Index from '@/components/Index'
-
-
+import p2pRegister from '@/components/p2pRegister'
+import p2p_llk_font from '@/components/p2p_llk/p2p_llk_font'
+import FirstTrial from '@/components/FirstTrial'
+import RecheckPage from '@/components/RecheckPage'
+import UserInfoPage from '@/components/UserInfoPage'
+import PneumaticControlPage from '@/components/PneumaticControlPage'
 
 Vue.use(Router)
 const originalPush = Router.prototype.push
@@ -33,9 +35,9 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/Index',
+      name: 'Index',
+      component: Index
     },
     {
       path: '/p2p_llk_calendar',
@@ -95,6 +97,11 @@ export default new Router({
       component: Pay3,
     },
     {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+    },
+    {
       path: '/p2pLogin',
       name: 'p2pLogin',
       component: p2pLogin,
@@ -102,11 +109,6 @@ export default new Router({
     { path: '/Graph',
       name: 'Graph',
       component: Graph,
-    },
-    {
-      path: '/p2p_llk_index',
-      name: 'p2p_llk_index',
-      component: p2p_llk_index
     },
     {
       path: '/Histogram',
@@ -119,9 +121,34 @@ export default new Router({
       component: Face,
     },
     {
-      path: '/Index',
-      name: 'Index',
-      component: Index,
+      path: '/Loan',
+      name: 'Loan',
+      component: Loan,
+    },
+    {
+      path: '/p2p_llk_font',
+      name: 'p2p_llk_font',
+      component: p2p_llk_font,
+    },
+    {
+      path: '/FirstTrial',
+      name: 'FirstTrial',
+      component: FirstTrial,
+    },
+    {
+      path: '/RecheckPage',
+      name: 'RecheckPage',
+      component: RecheckPage,
+    },
+    {
+      path: '/UserInfoPage',
+      name: 'UserInfoPage',
+      component: UserInfoPage,
+    },
+    {
+      path: '/PneumaticControlPage',
+      name: 'PneumaticControlPage',
+      component: PneumaticControlPage,
     }
   ]
 })

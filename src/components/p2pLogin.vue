@@ -10,7 +10,7 @@
 
       <el-form-item style="width: 260px" >
         <el-button  size="medium" type="primary" style="margin-left: 30px" @click="onSubmit">登录</el-button>
-        <el-link type="primary" href="/register" style="margin-left: 30px">注册</el-link>
+        <el-link type="primary" href="/p2pRegister" style="margin-left: 30px">注册</el-link>
       </el-form-item>
 
       <div>
@@ -42,10 +42,12 @@
       },
       onSubmit() {
         var self = this;
-        this.$axios.post("/api/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
-          if (res.data.code == 200) {
+        this.$axios.post("/api/loginApi/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
+          console.log(res)
+          if (res.data.code == 1000) {
             //登录成功跳转到展示页面
-            self.$router.push("/BorrowMoney")
+            self.$cookie.set('token',res.data.data)
+            self.$router.push("Index")
           }else {
             alert(res.data.data)
           }
