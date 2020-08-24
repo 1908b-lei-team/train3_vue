@@ -23,3 +23,5 @@ src/components/Login.vue
 package.json
 package-lock.json
 
+*.js
+*.json

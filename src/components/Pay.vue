@@ -42,7 +42,7 @@
         querybalance(){
           var self =this;
 
-          this.$axios.post("api/hslApi/pay/querybalance").then(function (res) {
+          this.$axios.post("hslApi/pay/querybalance").then(function (res) {
             if (res.data.code == 200) {
               //alert(res.data.data)
               self.balance =  res.data.data;

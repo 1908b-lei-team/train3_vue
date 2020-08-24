@@ -64,7 +64,7 @@
             if (this.attestation.idNumber !== '') {
               var self = this;
               this.$axios.post("/api/accountApi/attestation/checkIdNumber2",this.$qs.stringify({"idNumber":this.attestation.idNumber})).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   callback();
                 }else {
                   callback(new Error('此身份证已绑定其他用户'));
@@ -200,7 +200,7 @@
           this.scanTip = '登录中，请稍等~'
           alert('开始')
           //axios.post(`http://localhost:8091/faceSearch`, formData)
-          this.$axios.post(`api/face/faceAdd`, formData)
+          this.$axios.post(`api/face/face/faceAdd`, formData)
             .then(res => {
               console.log(res.data)
               if(res.data.code == 0){
@@ -244,7 +244,7 @@
             if (valid) {
               var self = this;
               this.$axios.post("/api/accountApi/attestation/realNameAuthentication",this.$qs.stringify(this.attestation)).then(function (res) {
-                if (res.data.code == 200) {
+                if (res.data.code == 1000) {
                   self.$router.push("/account")
                 }else {
                   alert(res.data.data)
