@@ -22,7 +22,11 @@
     </el-form-item>
 
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">立即购买</el-button>
+
+      <template slot-scope="scope">
+        <el-button  size="mini"  @click="onSubmit()" type="warning">立即购买</el-button>
+
+      </template>
 
     </el-form-item>
   </el-form>
@@ -34,19 +38,19 @@
         name: "pay2",
       data() {
         return {
-
           generalassets:"",
           pay: {
             dealpassword:"",
             loanamount:"",
-
+            id:"",
+            userid:''
           }
         }
       },
 
       created(){
         //查询账户余额
-        this.id=  this.$route.query.id
+        this.pay.id=  this.$route.query.id
        this.querygeneralassets()
       },
       methods: {
@@ -54,30 +58,43 @@
           //查询账户余额
         querygeneralassets(){
           var self = this;
-          this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.id})).then(function(res){
+          this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.pay.id})).then(function(res){
             if(res.data.code==200){
               self.generalassets=res.data.data
             }
           })
         },
 
+        //立即购买
         onSubmit() {
+
           var self = this;
-          this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify({"pay":this.pay},{"id":this.id})).then(function(res){
+          this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify(this.pay)).then(function(res){
             if(res.data.code==200){
+              self.$router.push({
+                path:"/pay1",
+                query:{
+
+                  id: self.pay.id,
+
+                }
+              })
+
             }
+
           })
 
         },
         format(percentage) {
           return percentage === 100 ? '满' : `${percentage}%`;
         },
-        gotopay(id){
+        gotopay(){
+          alert(this.pay.id)
           var self =this;
           self.$router.push({
             path: "/Pay",
             query:{
-              id: id,
+              id:  self.pay.id,
             }
           })
         }
