@@ -73,9 +73,9 @@
         <td> </td>
       </tr>
 
-      <tr v-if="this.tableData2.creditCardNumbers">
+      <tr v-else-if="this.tableData2.creditCardNumbers">
         <td>银行卡绑定</td>
-        <td>已绑定</td>
+        <td>未绑定</td>
         <td>绑定银行卡不仅可以便于充值以及提现,也可以作为账号持有者的有力证明。</td>
         <td> </td>
       </tr>
@@ -105,7 +105,7 @@
       queryInfo(){
         var self = this;
         this.$axios.post("/api/accountApi/attestation/queryInfo").then(function (res) {
-          if (res.data.code == 200) {
+          if (res.data.code == 1000) {
                 self.tableData = res.data.data;
                 //alert(self.tableData.realName)
           }else {
@@ -116,7 +116,7 @@
       queryInfo2(){
         var self = this;
         this.$axios.post("/api/accountApi/account/queryInfo2").then(function (res) {
-          if (res.data.code == 200) {
+          if (res.data.code == 1000) {
                 self.tableData2 = res.data.data;
               //  self.phone = res.data.data.bankPhone;
           }else {
