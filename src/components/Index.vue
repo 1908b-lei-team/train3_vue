@@ -48,7 +48,6 @@
           this.$axios.post("http://localhost:8085/user/logout.do").then(function(res){
           })
         }
-
       },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
@@ -64,19 +63,6 @@
           this.$router.push('/index');
         }
       },
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-        console.log(key);
-
-        if(key=="1-1"){
-          this.$router.push('/area');
-        }
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
-
-
     }
   }
   </script>

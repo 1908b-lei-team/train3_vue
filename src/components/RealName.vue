@@ -200,7 +200,7 @@
           this.scanTip = '登录中，请稍等~'
           alert('开始')
           //axios.post(`http://localhost:8091/faceSearch`, formData)
-          this.$axios.post(`api/face/faceAdd`, formData)
+          this.$axios.post(`api/face/face/faceAdd`, formData)
             .then(res => {
               console.log(res.data)
               if(res.data.code == 0){

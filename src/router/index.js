@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import BorrowMoney from '@/components/BorrowMoney'
 import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
@@ -20,11 +19,7 @@ import Histogram from '@/components/patterning/Histogram'
 import Face from '@/components/Face'
 import Loan from '@/components/Loan'
 import Index from '@/components/Index'
-
-
 import p2pRegister from '@/components/p2pRegister'
-
-
 
 
 Vue.use(Router)
@@ -37,9 +32,9 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/Index',
+      name: 'Index',
+      component: Index
     },
     {
       path: '/p2p_llk_calendar',
@@ -132,10 +127,5 @@ export default new Router({
       name: 'Loan',
       component: Loan,
     },
-    {
-      path: '/Index',
-      name: 'Index',
-      component: Index,
-    }
   ]
 })
