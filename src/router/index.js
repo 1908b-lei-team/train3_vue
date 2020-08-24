@@ -34,8 +34,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Index',
+      component: Index
     },
     {
       path: '/p2p_llk_calendar',
@@ -118,10 +118,5 @@ export default new Router({
         name: 'Face',
       component: Face,
     },
-    {
-      path: '/Index',
-      name: 'Index',
-      component: Index,
-    }
   ]
 })
