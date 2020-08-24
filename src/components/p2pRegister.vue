@@ -15,9 +15,9 @@
       </el-form-item>
 
       <el-form-item label="性别" style="width: 360px">
-        <el-radio v-model="member.usersex" label="1">男</el-radio>
-        <el-radio v-model="member.usersex" label="2">女</el-radio>
-        <el-radio v-model="member.usersex" label="3">保密</el-radio>
+        <el-radio v-model="member.usersex" label="MAN">男</el-radio>
+        <el-radio v-model="member.usersex" label="WOMAN">女</el-radio>
+        <el-radio v-model="member.usersex" label="SECRET">保密</el-radio>
       </el-form-item>
 
       <el-form-item label="年龄" style="width: 260px">
@@ -36,8 +36,8 @@
       </el-form-item>
 
       <el-form-item label="婚姻状态" style="width: 360px">
-        <el-radio v-model="member.usermarriage" label="1">已婚</el-radio>
-        <el-radio v-model="member.usermarriage" label="2">未婚</el-radio>
+        <el-radio v-model="member.usermarriage" label="MARRIED">已婚</el-radio>
+        <el-radio v-model="member.usermarriage" label="NOT_MARRIED">未婚</el-radio>
       </el-form-item>
 
       <el-form-item label="工作年限" style="width: 260px">
@@ -52,10 +52,10 @@
       </el-form-item>
 
       <el-form-item label="房产" style="width: 460px">
-        <el-radio v-model="member.userhouse" label="1">全款买房</el-radio>
-        <el-radio v-model="member.userhouse" label="2">货款买房</el-radio>
-        <el-radio v-model="member.userhouse" label="3">租房</el-radio>
-        <el-radio v-model="member.userhouse" label="4">无</el-radio>
+        <el-radio v-model="member.userhouse" label="TOTAL_PAY_HOME">全款买房</el-radio>
+        <el-radio v-model="member.userhouse" label="LOANS_PAY_HOME">货款买房</el-radio>
+        <el-radio v-model="member.userhouse" label="RENT_HOME">租房</el-radio>
+        <el-radio v-model="member.userhouse" label="NO_PAY">无</el-radio>
       </el-form-item>
 
       <el-form-item label="年收入"style="width: 260px">
@@ -74,9 +74,9 @@
       </el-form-item>
 
       <el-form-item label="婚姻状态" style="width: 390px">
-        <el-radio v-model="member.uservehicle" label="1">全款买车</el-radio>
-        <el-radio v-model="member.uservehicle" label="2">货款买车</el-radio>
-        <el-radio v-model="member.uservehicle" label="3">无</el-radio>
+        <el-radio v-model="member.uservehicle" label="TOTAL_PAY_CAR">全款买车</el-radio>
+        <el-radio v-model="member.uservehicle" label="LOANS_PAY_CAR">货款买车</el-radio>
+        <el-radio v-model="member.uservehicle" label="NO_PAY">无</el-radio>
       </el-form-item>
 
       <el-form-item style="width: 260px">
@@ -98,7 +98,8 @@
             //验证账号是否存在
             var self = this;
             this.$axios.post("/api/loginApi/userLoginControlle/queryByUserPhone",this.$qs.stringify({"userPhone":this.member.userphone})).then(function (res) {
-              if (res.data.code == 200) {
+              console.log(res.data)
+              if (res.data.code == 1000) {
                 callback();
               }else {
                 callback(new Error('手机号已存在'));
@@ -145,61 +146,61 @@
         },
 
         options: [{
-          value: '小学',
+          value: 'PRIMARY',
           label: '小学'
         }, {
-          value: '初中',
+          value: 'JUNIOR',
           label: '初中'
         }, {
-          value: '高中',
+          value: 'SENIOR',
           label: '高中'
         }, {
-          value: '专科',
+          value: 'COLLEGE',
           label: '专科'
         }, {
-          value: '本科',
+          value: 'UNDERGRADUATE',
           label: '本科'
         }, {
-          value: '研究生及以上',
+          value: 'GRADUATE',
           label: '研究生及以上'
         }],
 
         //工作年限
         options1: [{
-          value: '1~3年',
+          value: 'ONE_TO_THREE_YEAR',
           label: '1~3年'
         }, {
-          value: '3~5年',
+          value: 'THREE_TO_FIVE_YEAR',
           label: '3~5年'
         }, {
-          value: '5~8年',
+          value: 'FIVE_TO_EIGHT_YEAR',
           label: '5~8年'
         }, {
-          value: '8年以上',
+          value: 'MORE_EIGHT_YEAR',
           label: '8年以上'
         }],
 
         //年收入
         options2: [{
-          value: '1~5万',
+          value: 'ONE_TO_FIVE_THOUSAND',
           label: '1~5万'
         }, {
-          value: '5~10万',
+          value: 'FIVE_TO_TEN_THOUSAND',
           label: '5~10万'
         }, {
-          value: '10~20万',
+          value: 'TEN_TO_TWENTY_THOUSAND',
           label: '10~20万'
         }, {
-          value: '20~30万',
+          value: 'TWENTY_TO_THIRTY_THOUSAND',
           label: '20~30万'
         }, {
-          value: '30~50万',
+          value: 'THIRTY_TO_FIFTY_THOUSAND',
           label: '30~50万'
         }, {
-          value: '50万~100万',
+          value: 'FIFTY_TO_HUNDRED_THOUSAND',
           label: '50万~100万'
         },{
-          value: '100万以上',
+          value: 'MORE_ONE_HUNDRED_THOUSAND',
           label: '100万以上'
         }],
 
@@ -223,8 +224,8 @@
             var self = this;
             console.log(self.member)
             this.$axios.post("/api/loginApi/userLoginControlle/register",this.$qs.stringify(this.member)).then(function (res) {
-              if (res.data.code == 200) {
-                self.$router.push("")
+              if (res.data.code == 1000) {
+                self.$router.push("p2pLogin")
               }else {
                 alert(res.data.data)
               }
