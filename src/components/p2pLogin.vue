@@ -43,7 +43,7 @@
       onSubmit() {
         var self = this;
         this.$axios.post("/api/loginApi/userLoginControlle/userLogin",this.$qs.stringify(this.member)).then(function (res) {
-          if (res.data.code == 200) {
+          if (res.data.code == 1000) {
             //登录成功跳转到展示页面
             self.$cookie.set('token',res.data.data)
             console.log(res.data.data)

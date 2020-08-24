@@ -41,7 +41,7 @@ axios.interceptors.request.use(function (config) {
   return config
 })
 axios.interceptors.response.use(function (config) {
-  if (config.data.code === 1002) {
+  if (config.data.code === 500) {
     location.href = '/'
   }
   return config
