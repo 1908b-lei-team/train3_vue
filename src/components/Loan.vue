@@ -19,9 +19,13 @@
           <el-input v-model="loan.borrowMoney" placeholder="请输入借款金额" style="width: 240px"></el-input>
         </el-form-item>
 
-        <el-form-item label="年利率"  style="width:240px">
-          <el-input v-model="loan.annualRate" style="width: 240px"></el-input>
+        <el-form-item label="期限"  style="width:600px">
+            <el-radio v-model="loan.deadline" label="3_STAGE" style="width:30px"  >3期</el-radio>
+            <el-radio v-model="loan.deadline" label="6_STAGE" style="width:30px" >6期</el-radio>
+            <el-radio v-model="loan.deadline" label="9_STAGE"  style="width:30px">9期</el-radio>
+            <el-radio v-model="loan.deadline" label="12_STAGE"  style="width:30px">12期</el-radio>
         </el-form-item>
+
 
         <el-form-item style="width:240px">
           <el-button type="primary" @click="submitForm()">确认贷款</el-button>
@@ -45,6 +49,7 @@
               loanName:'',
               borrowMoney:'',
               annualRate:'',
+              deadline:''
             }
           }
       },
@@ -56,6 +61,7 @@
               self.$router.push("/BorrowMoney")
             }else {
               alert(res.data.data)
+              self.loan.borrowMoney=""
             }
           })
         },

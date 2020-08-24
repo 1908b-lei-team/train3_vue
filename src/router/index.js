@@ -21,7 +21,6 @@ import Index from '@/components/Index'
 import p2pRegister from '@/components/p2pRegister'
 import p2p_llk_font from '@/components/p2p_llk/p2p_llk_font'
 
-
 Vue.use(Router)
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
