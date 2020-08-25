@@ -1,8 +1,8 @@
 <template>
   <div>
-  <el-form ref="form" :model="form" label-width="80px">
+  <el-form ref="pay" :model="pay" label-width="80px">
     <el-form-item >
-    账户余额 ￥ {{form.generalassets}}
+    账户余额 ￥ {{this.generalassets}}
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
@@ -15,14 +15,18 @@
     </el-form-item>
 
     <el-form-item label="出借金额">
-      <el-input type="form.paymoney" style="width:260px"></el-input>
+      <el-input v-model="pay.paymoney" style="width:260px"></el-input>
     </el-form-item>
     <el-form-item label="交易密码">
-      <el-input type="form.dealpassword" style="width:260px"></el-input>
+      <el-input v-model="pay.dealpassword" style="width:260px"></el-input>
     </el-form-item>
 
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">立即购买</el-button>
+
+      <template slot-scope="scope">
+        <el-button  size="mini"  @click="onSubmit()" type="warning">立即购买</el-button>
+
+      </template>
 
     </el-form-item>
   </el-form>
@@ -34,48 +38,65 @@
         name: "pay2",
       data() {
         return {
-          id:"",
-          form: {
-            dealpassword:"",
-            generalassets:"",
-            paymoney:"",
+          generalassets: "",
+          pay: {
+            dealpassword: "",
+            loanamount: "",
+            id: "",
+            userid: '',
           }
         }
       },
 
       created(){
         //查询账户余额
-        this.id=  this.$route.query.id
-        alert(this.id)
-       this.querygeneralassets();
+        this.pay.id=  this.$route.query.id
+        this.querygeneralassets()
+
+        alert(this.pay.id)
+
       },
       methods: {
+        //立即购买
+        onSubmit() {
 
-          //查询账户余额
-        querygeneralassets(){
           var self = this;
-          this.$axios.post("hslApi/pay/querygeneralassets").then(function(res){
-            if(res.data.code==200){
-              self.generalassets=res.data.data;
+          this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify(this.pay)).then(function(res){
+            if(res.data.code==200) {
+              self.$router.push({
+                path: "/pay1",
+                query: {
+                  id: self.pay.id,
+                }
+              })
             }
           })
-        },
-
-        onSubmit() {
           console.log('submit!');
         },
         format(percentage) {
           return percentage === 100 ? '满' : `${percentage}%`;
         },
         gotopay(){
+          alert(this.pay.id)
           var self =this;
           self.$router.push({
             path: "/Pay",
             query:{
+              id:  self.pay.id,
 
             }
           })
-        }
+        },
+        //查询账户余额
+        querygeneralassets(){
+          var self = this;
+          this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.pay.id})).then(function(res) {
+              if (res.data.code == 200) {
+                console.log(res.data)
+                self.generalassets = res.data.data;
+              }
+            })
+        },
       }
     }
 </script>
