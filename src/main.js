@@ -37,12 +37,11 @@ new Vue({
 axios.interceptors.request.use(function (config) {
   var token = Cookies.get('token')
   config.headers['x-auth'] = token
-  console.log(token)
   return config
 })
 axios.interceptors.response.use(function (config) {
-  if (config.data.code === 500) {
-    location.href = '/'
+  if (config.data.code === 1002) {
+    location.href = '/p2pLogin'
   }
   return config
 })
