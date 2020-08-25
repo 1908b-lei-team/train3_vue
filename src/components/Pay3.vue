@@ -9,18 +9,19 @@
       *******
     </el-form-item>
     <el-form-item label="银行预留手机号" style="width: 350px">
-      <el-input v-model="pay.phone" style="width: 260px" ></el-input>
+      <!--<el-input v-model="pay.phone" style="width: 260px" ></el-input>-->
+      184*****0229
     </el-form-item>
 
     <el-form-item label="充值金额" style="width: 230px">
-     {{this.paymoney}}
+     {{pay.paymoney}}
     </el-form-item>
 
     <el-form-item label="交易密码" style="width: 260px">
       <el-input v-model="pay.dealpassword" style="width: 260px" ></el-input>
     </el-form-item>
     <el-form-item style="width: 260px" >
-      <el-button type="primary" @click="submit">确认提交</el-button>
+      <el-button type="primary" @click="commith()">确认提交</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -30,25 +31,40 @@
         name: "Pay3",
       data(){
           return{
-            paymoney:"",
             pay:{
               name:"",
               banknumber:"",
               phone:"",
               dealpassword:"",
+              paymoney:"",
               id:"",
             },
           }
       },
       created(){
         this.pay.id=  this.$route.query.id
-        this.paymoney=  this.$route.query.paymoney
+        this.pay.paymoney=  this.$route.query.paymoney
+        console.log(this.pay)
       },
       methods: {
+        commith(){
+          var self = this;
+          this.$axios.post("api/hslApi/pay/commith",this.$qs.stringify(this.pay)).then(function(res) {
+            if (res.data.code == 200) {
+              self.generalassets = res.data.data;
+              self.$router.push({
+                path: "/pay2",
+                query: {
+                  id: self.pay.id,
+                  generalassets: self.generalassets,
 
+                }
+              })
+            }else{
 
-        submit(){
-
+              alert(res.data.data)
+            }
+          })
         }
       }
       }

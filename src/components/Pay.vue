@@ -44,26 +44,19 @@
        this.querybalance();
       },
       methods: {
+          //查询可用余额
         querybalance(){
           var self = this;
-          this.$axios.post("api/hslApi/pay/querybalance",this.$qs.stringify({"id":this.pay.id})).then(function(res){
-            if(res.data.code==200) {
+          this.$axios.post("api/hslApi/pay/querybalance",this.$qs.stringify({"id":this.pay.id})).then(function(res) {
+            if (res.data.code == 200) {
+              console.log(res.data)
               self.balance = res.data.data
-              var self = this;
 
-              this.$axios.post("hslApi/pay/querybalance").then(function (res) {
-                if (res.data.code == 200) {
-                  //alert(res.data.data)
-                  self.balance = res.data.data;
-                }
-              })
             }
+          })
         },
-
-
         //去充值
-        gotop()
-          {
+        gotop(){
             var self = this;
             self.$router.push({
               path: "/Pay3",
@@ -73,8 +66,8 @@
 
               }
             })
-          }
-        },
+
+        }
       }
     }
 </script>
