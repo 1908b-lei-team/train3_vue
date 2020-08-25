@@ -69,7 +69,7 @@
           </p>
           <p>
             <span class="el-icon-user-solid">
-              &nbsp<a href="">个人信息管理</a>
+              &nbsp<a @click="aaaaa($router.push('/SecurityCenter'))">个人信息管理</a>
             </span>
           </p>
         </el-drawer>
