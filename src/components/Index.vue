@@ -23,9 +23,7 @@
         <el-container style="height: 690px">
 
           <el-main style="float: left">
-
             <router-view></router-view>
-
           </el-main>
 
 
