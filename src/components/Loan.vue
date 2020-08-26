@@ -57,7 +57,7 @@
         submitForm() {
           var self = this;
           this.$axios.post("/api/borrowMoneyApi/controlController/addLoan",this.$qs.stringify(this.loan)).then(function (res) {
-            if (res.data.code == 200) {
+            if (res.data.code == 1000) {
               self.$router.push("/BorrowMoney")
             }else {
               alert(res.data.data)

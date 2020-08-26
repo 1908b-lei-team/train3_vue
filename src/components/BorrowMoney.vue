@@ -225,7 +225,7 @@
       queryList() {
         var self = this;
         this.$axios.post("/api/borrowMoneyApi/controlController/queryList").then(function(res){
-          if(res.data.code==200){
+          if(res.data.code==1000){
             self.tableData = res.data.data.list;
           }else {
 
@@ -235,7 +235,7 @@
       queryBillList() {
         var self = this;
         this.$axios.post("/api/borrowMoneyApi/billController/queryBillList").then(function(res){
-          if(res.data.code==200){
+          if(res.data.code==1000){
             self.gridData = res.data.data;
           }
         })

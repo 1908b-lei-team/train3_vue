@@ -23,8 +23,12 @@
         <el-container style="height: 690px">
 
           <el-main style="float: left">
+
             <router-view></router-view>
+
           </el-main>
+
+
         </el-container>
       </el-container>
       <div>
@@ -39,7 +43,7 @@
           title="个人账户展示页面"
           :visible.sync="drawer"
           :direction="direction"
-          :before-close="handleClose">
+          >
           <p>
             <span class="el-icon-s-finance">
               &nbsp<a href="">我的存款账户</a>
@@ -66,10 +70,7 @@
 </template>
 
 <script>
-  import p2p_llk_video from '@/components/p2p_llk/p2p_llk_video'
-  import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
   export default {
-    components:{p2p_llk_video,p2p_llk_calendar},
     name: "Index",
     data() {
       return {
@@ -132,7 +133,6 @@
   }
 
   .el-main {
-    background:url("../assets/b9034dce678bd10b97212608ec6d1f92.jpg");
     padding: 0px;
     color: #333;
     text-align: center;

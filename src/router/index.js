@@ -19,7 +19,6 @@ import Face from '@/components/Face'
 import Loan from '@/components/Loan'
 import Index from '@/components/Index'
 import p2pRegister from '@/components/p2pRegister'
-import p2p_llk_font from '@/components/p2p_llk/p2p_llk_font'
 import FirstTrial from '@/components/FirstTrial'
 import RecheckPage from '@/components/RecheckPage'
 import UserInfoPage from '@/components/UserInfoPage'
@@ -50,11 +49,6 @@ export default new Router({
       component: Index,
       children:[
         {
-          path: '/p2p_llk_calendar',
-          name: 'p2p_llk_calendar',
-          component: p2p_llk_calendar
-        },
-        {
           path: '/RealName',
           name: 'RealName',
           component: RealName
@@ -70,9 +64,14 @@ export default new Router({
           component: SecurityCenter
         },
         {
-          path: '/p2p_llk_video',
+          path: '/',
           name: 'p2p_llk_video',
           component: p2p_llk_video
+        },
+        {
+          path: '/',
+          name: 'p2p_llk_calendar',
+          component: p2p_llk_calendar
         },
         {
           path: '/BorrowMoney',
@@ -106,12 +105,6 @@ export default new Router({
           name: 'Pay3',
           component: Pay3,
         },
-        {
-          path: '/p2pRegister',
-          name: 'p2pRegister',
-          component: p2pRegister,
-        },
-
         { path: '/Graph',
           name: 'Graph',
           component: Graph,
@@ -126,11 +119,6 @@ export default new Router({
           path: '/Loan',
           name: 'Loan',
           component: Loan,
-        },
-        {
-          path: '/p2p_llk_font',
-          name: 'p2p_llk_font',
-          component: p2p_llk_font,
         },
         {
           path: '/FirstTrial',
@@ -153,6 +141,11 @@ export default new Router({
           component: PneumaticControlPage,
         }
       ]
-    }
+    },
+    {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+    },
   ]
 })
