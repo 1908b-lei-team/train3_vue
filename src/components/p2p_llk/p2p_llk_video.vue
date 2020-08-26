@@ -1,16 +1,28 @@
 <template>
   <div class="note" :style ="note">
-  <div class="video-content" style="width: 700px;height: 500px;margin-left: 28%">
-    <div class="video-player-content">
+      <div class="video-content" style="width: 700px;height: 500px;float: left;margin-left: 299px">
+        <div class="video-player-content">
 
-      <video-player class="video-player vjs-custom-skin"
-                    ref="videoPlayer"
-                    :playsinline="true"
-                    :options="playerOptions">
-      </video-player>
+          <video-player class="video-player vjs-custom-skin"
+                        ref="videoPlayer"
+                        :playsinline="true"
+                        :options="playerOptions">
+          </video-player>
+        </div>
+      </div>
 
-    </div>
-  </div>
+      <div  style="width: 500px;height: 100px;float: right">
+        <el-calendar>
+          <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+          <template
+            slot="dateCell"
+            slot-scope="{date, data}">
+            <p> <!--这里原本有动态绑定的class，去掉-->
+              {{ data.day.split('-').slice(1).join('-') }}<br /> {{dealMyDate(data.day)}}
+            </p>
+          </template>
+        </el-calendar>
+      </div>
   </div>
 </template>
 
@@ -20,15 +32,18 @@
   import 'video.js/dist/video-js.css'
     export default {
         name: "p2p_llk_video",
-      components: {
-        videoPlayer
-      },
+      components: {videoPlayer},
       data() {
         return {
+          resDate: [
+            {"date":"2020-8-18","content":"放假"},
+            {"date":"2019-12-26","content":"去交电费"},
+            {"date":"2019-11-26","content":"去学习vue"}
+          ],
           note: {
             backgroundImage: "url(" + require("../../assets/b9034dce678bd10b97212608ec6d1f92.jpg") + ")",
             backgroundSize: "1600px auto",
-            height:'100vh',
+            height:'99vh',
           },
           playerOptions: {
             playbackRates: [0, 5, 1.0, 1.5, 2.0],
@@ -62,6 +77,20 @@
               fullscreenToggle: true // 是否显示全屏按钮
             }
           }
+        }
+      },
+      methods:{
+        dealMyDate(v) {
+          console.log(v)
+          let len = this.resDate.length
+          let res = ""
+          for(let i=0; i<len; i++){
+            if(this.resDate[i].date == v) {
+              res = this.resDate[i].content
+              break
+            }
+          }
+          return res
         }
       }
     }
