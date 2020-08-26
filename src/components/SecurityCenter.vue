@@ -20,7 +20,9 @@
         <td>开户</td>
         <td>未开户</td>
         <td>您的银行开户账户为:-----------</td>
-        <td>去开户</td>
+        <td>
+          <a @click="aaaa($router.push('/Account'))">去开户</a>
+        </td>
       </tr>
 
 
