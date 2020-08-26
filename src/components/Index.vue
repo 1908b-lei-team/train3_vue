@@ -98,7 +98,7 @@
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
         if(key==2){
-          this.$router.push('/product');
+          this.$router.push('/pay1');
         }else if(key==3){
           this.$router.push('/category');
         }else if(key==4){
