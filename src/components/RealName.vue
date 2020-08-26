@@ -247,7 +247,7 @@
                 if (res.data.code == 1000) {
                   self.$router.push("/account")
                 }else {
-                  alert(res.data.data)
+                  console.log(res.data.data);
                 }
               })
             } else {

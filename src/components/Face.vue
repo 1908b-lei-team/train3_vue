@@ -140,7 +140,9 @@ export default {
           .then(res => {
             console.log(res.data)
             if(res.data.code==1000){
-              alert(res.data.data.name+res.data.data.gender+", 您好！人脸认证通过！")
+              //alert(res.data.data.token)
+              this.$cookie.set('token',res.data.data.token)
+              alert(res.data.data.faceSearchResDto.name+res.data.data.faceSearchResDto.gender+", 您好！人脸认证通过！")
               this.$router.push('/index')
             }else{
               alert("人脸认证失败通过！")

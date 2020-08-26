@@ -36,7 +36,9 @@
         <td rowspan="3">实名认证</td>
         <td rowspan="3">未认证</td>
         <td>您的真实姓名:-----------</td>
-        <td rowspan="3"> </td>
+        <td rowspan="3">
+          <a @click="aaaaa($router.push('/RealName'))">去实名</a>
+        </td>
       </tr>
 
       <tr>
