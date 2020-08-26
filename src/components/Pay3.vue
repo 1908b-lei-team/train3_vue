@@ -50,7 +50,7 @@
         commith(){
           var self = this;
           this.$axios.post("api/hslApi/pay/commith",this.$qs.stringify(this.pay)).then(function(res) {
-            if (res.data.code == 200) {
+            if (res.data.code == 1000) {
               self.generalassets = res.data.data;
               self.$router.push({
                 path: "/pay2",

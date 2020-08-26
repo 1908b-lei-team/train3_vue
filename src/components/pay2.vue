@@ -7,7 +7,7 @@
     </el-form-item>
     <el-form-item >
       <div>满标进度</div>
-    <div style="float: right;width: 1750px;margin-top: -25px"><el-progress :percentage="50" :format="format" style="width: 150px"></el-progress></div>
+    <div style="float: right;width: 850px;margin-top: -25px"><el-progress :percentage="50" :format="format" style="width: 150px"></el-progress></div>
     </el-form-item>
 
     <el-form-item >
@@ -62,7 +62,7 @@
 
           var self = this;
           this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify(this.pay)).then(function(res){
-            if(res.data.code==200) {
+            if(res.data.code==1000) {
               self.$router.push({
                 path: "/pay1",
                 query: {
@@ -91,7 +91,7 @@
         querygeneralassets(){
           var self = this;
           this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.pay.id})).then(function(res) {
-              if (res.data.code == 200) {
+              if (res.data.code == 1000) {
                 console.log(res.data)
                 self.generalassets = res.data.data;
               }
