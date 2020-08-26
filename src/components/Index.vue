@@ -23,19 +23,7 @@
         <el-container style="height: 690px">
 
           <el-main style="float: left">
-
-            <div style="float: left;margin-left: 103px">
-              <p2p_llk_video></p2p_llk_video>
-            </div>
-
-            <div style="float: right">
-              <p2p_llk_calendar></p2p_llk_calendar>
-            </div>
-
-            <div style="float:right">
-              <p2p_llk_font></p2p_llk_font>
-            </div>
-
+            <router-view></router-view>
           </el-main>
         </el-container>
       </el-container>
