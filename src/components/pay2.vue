@@ -6,19 +6,20 @@
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
-      <div>满标进度</div>
-    <div style="float: right;width: 850px;margin-top: -25px"><el-progress :percentage="50" :format="format" style="width: 150px"></el-progress></div>
+      <div style="margin-left: -125px">满标进度</div>
+    <div style="float: right;width: 930px;margin-top: -25px"><el-progress :percentage="50" :format="format" style="width: 150px"></el-progress></div>
     </el-form-item>
 
     <el-form-item >
-     最多可投 ￥50000
+    <div style="margin-left: -125px">最多可投</div>
+      <div style="float: right;width: 1800px;margin-top: -40px"><font color="red" size="3">￥50000</font></div>
     </el-form-item>
 
-    <el-form-item label="出借金额">
-      <el-input v-model="pay.paymoney" style="width:260px"></el-input>
+    <el-form-item style="margin-left: 890px" label="出借金额">
+      <el-input v-model="pay.loanamount" style="width:260px;margin-left: -650px"></el-input>
     </el-form-item>
-    <el-form-item label="交易密码">
-      <el-input v-model="pay.dealpassword" style="width:260px"></el-input>
+    <el-form-item style="margin-left: 890px" label="交易密码">
+      <el-input v-model="pay.dealpassword" style="width:260px;margin-left: -650px"></el-input>
     </el-form-item>
 
     <el-form-item>
