@@ -89,17 +89,17 @@
           <el-button v-if="scope.row.status=='待放款'"
                      size="mini"
                      type="success"
-                     @click="withdrawDeposit(scope.$index, scope.row)">提现</el-button>
+                     @click="withdrawDeposit(scope.$index,scope.row)">提现</el-button>
 
-              <a v-if="scope.row.status=='还款中'"
+              <el-button v-if="scope.row.status=='还款中'"
                          size="mini"
                          type="success"
-                  @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
+                  @click="bill(scope.$index,scope.row)">账单</el-button>
 
-          <a  v-if="scope.row.status=='已完成'"
+          <el-button  v-if="scope.row.status=='已完成'"
                      size="mini"
                      type="success"
-             @click="bill(scope.$index, scope.row)">账单 (0/9)</a>
+             @click="bill(scope.$index,scope.row)">账单</el-button>
           <a v-if="scope.row.status=='流标'"
              size="mini"
              type="success"
@@ -137,14 +137,14 @@
           label="账单编号"
           width="180">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.billNum }}</span>
+            <span style="margin-left: 10px">{{ scope.row.number }}</span>
           </template>
         </el-table-column>
         <el-table-column
           label="期数"
           width="110">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.periodsNum }}</span>
+            <span style="margin-left: 10px">{{ scope.row.deadline }}</span>
           </template>
         </el-table-column>
         <el-table-column
@@ -201,7 +201,6 @@
 
     data() {
       return {
-        id:'',
         tableData: [],
         gridData:[],
         hiddenTableHeader:false,
@@ -212,16 +211,16 @@
       this.queryList();
     },
     methods: {
-
-
-      bill(){
+      bill(index,row){
+        console.log(row.userId)
         var self = this;
         self.hiddenTableHeader=true
         self.queryBillList();
         self.aaaaa=true;
       },
-      withdrawDeposit(row){
-        this.$router.push({path:"/Withdraw",query:{'orderNo':row.id}});
+      withdrawDeposit(index,row){
+        console.log(row.id)
+      this.$router.push({path:"/Withdraw",query:{'orderNo':row.id}});
       },
       queryList() {
         var self = this;
