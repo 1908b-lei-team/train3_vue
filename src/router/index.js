@@ -141,5 +141,6 @@ export default new Router({
       name: 'p2pRegister',
       component: p2pRegister,
     },
+
   ]
 })
