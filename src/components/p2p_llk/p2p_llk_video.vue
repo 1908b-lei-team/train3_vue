@@ -1,4 +1,5 @@
 <template>
+  <div class="note" :style ="note">
   <div class="video-content" style="width: 700px;height: 500px;margin-left: 28%">
     <div class="video-player-content">
 
@@ -9,6 +10,7 @@
       </video-player>
 
     </div>
+  </div>
   </div>
 </template>
 
@@ -23,6 +25,11 @@
       },
       data() {
         return {
+          note: {
+            backgroundImage: "url(" + require("../../assets/b9034dce678bd10b97212608ec6d1f92.jpg") + ")",
+            backgroundSize: "1600px auto",
+            height:'100vh',
+          },
           playerOptions: {
             playbackRates: [0, 5, 1.0, 1.5, 2.0],
             // 如果为true,浏览器准备好时开始回放。
@@ -61,5 +68,4 @@
 </script>
 
 <style scoped>
-
 </style>
