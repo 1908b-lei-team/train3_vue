@@ -35,120 +35,124 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path: '/Index',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/p2p_llk_calendar',
-      name: 'p2p_llk_calendar',
-      component: p2p_llk_calendar
-    },
-    {
-      path: '/RealName',
-      name: 'RealName',
-      component: RealName
-    },
-    {
-      path: '/Account',
-      name: 'Account',
-      component: Account
-    },
-    {
-      path: '/SecurityCenter',
-      name: 'SecurityCenter',
-      component: SecurityCenter
-    },
-    {
-      path: '/p2p_llk_video',
-      name: 'p2p_llk_video',
-      component: p2p_llk_video
-    },
-    {
-      path: '/BorrowMoney',
-      name: 'BorrowMoney',
-      component: BorrowMoney,
-    },
-    {
-      path: '/Withdraw',
-      name: 'Withdraw',
-      component: Withdraw
-    },
-    { path: '/VentureCapital',
-      name: 'VentureCapital',
-      component: VentureCapital,
-    },
-
-    { path: '/Pay',
-      name: 'Pay',
-      component: Pay,
-    },
-    { path: '/Pay1',
-      name: 'Pay1',
-      component: Pay1,
-    },
-    { path: '/Pay2',
-      name: 'Pay2',
-      component: Pay2,
-    }
-    ,
-    { path: '/Pay3',
-      name: 'Pay3',
-      component: Pay3,
-    },
-    {
-      path: '/p2pRegister',
-      name: 'p2pRegister',
-      component: p2pRegister,
+      path: '/Face',
+      name: 'Face',
+      component: Face,
     },
     {
       path: '/p2pLogin',
       name: 'p2pLogin',
       component: p2pLogin,
     },
-    { path: '/Graph',
-      name: 'Graph',
-      component: Graph,
-    },
     {
-      path: '/Histogram',
-      name: 'Histogram',
-      component: Histogram,
-    },
-    {
-      path: '/Face',
-        name: 'Face',
-      component: Face,
-    },
-    {
-      path: '/Loan',
-      name: 'Loan',
-      component: Loan,
-    },
-    {
-      path: '/p2p_llk_font',
-      name: 'p2p_llk_font',
-      component: p2p_llk_font,
-    },
-    {
-      path: '/FirstTrial',
-      name: 'FirstTrial',
-      component: FirstTrial,
-    },
-    {
-      path: '/RecheckPage',
-      name: 'RecheckPage',
-      component: RecheckPage,
-    },
-    {
-      path: '/UserInfoPage',
-      name: 'UserInfoPage',
-      component: UserInfoPage,
-    },
-    {
-      path: '/PneumaticControlPage',
-      name: 'PneumaticControlPage',
-      component: PneumaticControlPage,
+      path: '/Index',
+      name: 'Index',
+      component: Index,
+      children:[
+        {
+          path: '/p2p_llk_calendar',
+          name: 'p2p_llk_calendar',
+          component: p2p_llk_calendar
+        },
+        {
+          path: '/RealName',
+          name: 'RealName',
+          component: RealName
+        },
+        {
+          path: '/Account',
+          name: 'Account',
+          component: Account
+        },
+        {
+          path: '/SecurityCenter',
+          name: 'SecurityCenter',
+          component: SecurityCenter
+        },
+        {
+          path: '/p2p_llk_video',
+          name: 'p2p_llk_video',
+          component: p2p_llk_video
+        },
+        {
+          path: '/BorrowMoney',
+          name: 'BorrowMoney',
+          component: BorrowMoney,
+        },
+        {
+          path: '/Withdraw',
+          name: 'Withdraw',
+          component: Withdraw
+        },
+        { path: '/VentureCapital',
+          name: 'VentureCapital',
+          component: VentureCapital,
+        },
+
+        { path: '/Pay',
+          name: 'Pay',
+          component: Pay,
+        },
+        { path: '/Pay1',
+          name: 'Pay1',
+          component: Pay1,
+        },
+        { path: '/Pay2',
+          name: 'Pay2',
+          component: Pay2,
+        }
+        ,
+        { path: '/Pay3',
+          name: 'Pay3',
+          component: Pay3,
+        },
+        {
+          path: '/p2pRegister',
+          name: 'p2pRegister',
+          component: p2pRegister,
+        },
+
+        { path: '/Graph',
+          name: 'Graph',
+          component: Graph,
+        },
+        {
+          path: '/Histogram',
+          name: 'Histogram',
+          component: Histogram,
+        },
+
+        {
+          path: '/Loan',
+          name: 'Loan',
+          component: Loan,
+        },
+        {
+          path: '/p2p_llk_font',
+          name: 'p2p_llk_font',
+          component: p2p_llk_font,
+        },
+        {
+          path: '/FirstTrial',
+          name: 'FirstTrial',
+          component: FirstTrial,
+        },
+        {
+          path: '/RecheckPage',
+          name: 'RecheckPage',
+          component: RecheckPage,
+        },
+        {
+          path: '/UserInfoPage',
+          name: 'UserInfoPage',
+          component: UserInfoPage,
+        },
+        {
+          path: '/PneumaticControlPage',
+          name: 'PneumaticControlPage',
+          component: PneumaticControlPage,
+        }
+      ]
     }
   ]
 })
