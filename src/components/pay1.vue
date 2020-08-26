@@ -65,7 +65,7 @@
           var self =this;
 
           this.$axios.post("api/hslApi/pay/queryList").then(function (res) {
-            if (res.data.code == 200) {
+            if (res.data.code == 1000) {
               //alert(res.data.data)
               self.tableData =  res.data.data;
             }
