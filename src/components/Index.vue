@@ -12,14 +12,14 @@
             text-color="#fff"
             active-text-color="#ffd04b">
             <el-menu-item index="0" style="margin-left: 80px"><img src="../assets/images/54b3fd75a3400aa8249db0301ce14ce.png" height="57"/></el-menu-item>
-            <el-menu-item index="1" style="margin-left: 490px">首页</el-menu-item>
+            <el-menu-item index="1" style="margin-left: 290px">首页</el-menu-item>
+            <el-menu-item index="8">图形展示</el-menu-item>
             <el-menu-item index="2">我要出借</el-menu-item>
             <el-menu-item index="7">出借记录</el-menu-item>
             <el-menu-item index="3">我的借款</el-menu-item>
             <el-menu-item index="4">我要借款</el-menu-item>
-            <el-menu-item index="5">我要还款</el-menu-item>
+
             <el-menu-item index="6">注册/登录</el-menu-item>
-            <el-link type="info"@click="logout" style="float: right; margin-right: 20px; ">注销</el-link>
           </el-menu>
         </el-header>
 
@@ -82,12 +82,6 @@
       handleClose(key, keyPath) {
         console.log(key, keyPath);
       },
-      logout(){
-        if(confirm("确定注销吗?")){
-          this.$axios.post("http://localhost:8085/user/logout.do").then(function(res){
-          })
-        }
-      },
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
         if(key==2){
@@ -96,14 +90,14 @@
           this.$router.push('/BorrowMoney');
         }else if(key==4){
           this.$router.push('/Loan');
-        } else if(key==5){
-          this.$router.push('/log');
-        }else if(key==6){
+        } else if(key==6){
           this.$router.push('/p2pLogin');
         }else if(key==1){
           this.$router.push('/index');
         }else if(key==7){
           this.$router.push('/LoanShowPage');
+        }else if(key==8){
+          this.$router.push('/Graph');
         }
         else if (key="1-1") {
           this.$router.push('/SecurityCenter');
