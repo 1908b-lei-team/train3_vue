@@ -57,7 +57,7 @@
             {"date":"2019-11-26","content":"去学习vue"}
           ],
           note: {
-             backgroundImage: "url(" + require("../../assets/b9034dce678bd10b97212608ec6d1f92.jpg") + ")",
+             backgroundImage: "url(" + require("../../assets/微信图片_20200827200854.jpg") + ")",
             backgroundSize: "1600px auto",
             height:'99vh',
           },
