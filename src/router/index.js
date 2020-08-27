@@ -94,10 +94,6 @@ export default new Router({
           name: 'Pay3',
           component: Pay3,
         },
-        { path: '/Graph',
-          name: 'Graph',
-          component: Graph,
-        },
         {
           path: '/Histogram',
           name: 'Histogram',
@@ -141,5 +137,9 @@ export default new Router({
       name: 'SecurityCenter',
       component: SecurityCenter
     },
+    { path: '/Graph',
+      name: 'Graph',
+      component: Graph,
+    }
   ]
 })

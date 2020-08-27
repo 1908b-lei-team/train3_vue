@@ -11,10 +11,6 @@
           <el-input  type="textarea" v-model="loan.borrowExplain" autocomplete="off" placeholder="请输入借款说明" style="width: 240px"></el-input>
         </el-form-item>
 
-        <el-form-item label="借款人"  style="width:240px">
-          <el-input v-model="loan.loanName" placeholder="请输入借款人" style="width: 240px"></el-input>
-        </el-form-item>
-
         <el-form-item label="借款金额"  style="width:240px">
           <el-input v-model="loan.borrowMoney" placeholder="请输入借款金额" style="width: 240px"></el-input>
         </el-form-item>
@@ -46,7 +42,6 @@
             loan:{
               projectName:'',
               borrowExplain:'',
-              loanName:'',
               borrowMoney:'',
               annualRate:'',
               deadline:''
@@ -59,9 +54,11 @@
           this.$axios.post("/api/borrowMoneyApi/controlController/addLoan",this.$qs.stringify(this.loan)).then(function (res) {
             if (res.data.code == 1000) {
               self.$router.push("/BorrowMoney")
+            }else if (res.data.data == '你没有实名制') {
+              alert(res.data.data)
+              self.$router.push("/RealName")
             }else {
               alert(res.data.data)
-              self.loan.borrowMoney=""
             }
           })
         },

@@ -91,7 +91,7 @@
         if(key==2){
           this.$router.push('/pay1');
         }else if(key==3){
-          this.$router.push('/category');
+          this.$router.push('/Loan');
         }else if(key==4){
           this.$router.push('/log');
         } else if(key==5){
