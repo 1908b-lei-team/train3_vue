@@ -12,11 +12,11 @@
       label="项目"
       width="180">
     </el-table-column>
-    <el-table-column
+    <!--<el-table-column
       prop="name"
       label="借款人"
       width="180">
-    </el-table-column>
+    </el-table-column>-->
     <el-table-column
       prop="borrowMoney"
       label="借款金额">
@@ -30,7 +30,7 @@
       label="期限">
     </el-table-column>
     <el-table-column
-      prop="loan_time"
+      prop="loanTime"
       label="发起时间">
     </el-table-column>
     <el-table-column
