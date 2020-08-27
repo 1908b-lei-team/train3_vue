@@ -48,7 +48,12 @@
             //登录成功跳转到展示页面
             alert(res.data.data)
             self.$cookie.set('token',res.data.data)
-            self.$router.push("Index")
+            if(self.member.userphone==='admin'){
+              self.$router.push("AdminIndex")
+            }else{
+              self.$router.push("Index")
+            }
+
           }else {
             alert(res.data.data)
           }
