@@ -46,6 +46,7 @@
           console.log(res.data)
           if (res.data.code == 1000) {
             //登录成功跳转到展示页面
+            alert(res.data.data)
             self.$cookie.set('token',res.data.data)
             self.$router.push("Index")
           }else {
