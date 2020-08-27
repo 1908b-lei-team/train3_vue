@@ -66,7 +66,7 @@
           this.$axios.post("api/hslApi/pay/onSubmit",this.$qs.stringify(this.pay)).then(function(res){
             if(res.data.code==1000) {
               self.$router.push({
-                path: "/pay1",
+                path: "/LoanShowPage",
                 query: {
                   id: self.pay.id,
                 }
