@@ -14,6 +14,7 @@
             <el-menu-item index="0" style="margin-left: 80px"><img src="../assets/images/54b3fd75a3400aa8249db0301ce14ce.png" height="57"/></el-menu-item>
             <el-menu-item index="1" style="margin-left: 490px">首页</el-menu-item>
             <el-menu-item index="2">我要出借</el-menu-item>
+            <el-menu-item index="7">出借记录</el-menu-item>
             <el-menu-item index="3">我的借款</el-menu-item>
             <el-menu-item index="4">我要借款</el-menu-item>
             <el-menu-item index="5">我要还款</el-menu-item>
@@ -101,7 +102,10 @@
           this.$router.push('/p2pLogin');
         }else if(key==1){
           this.$router.push('/index');
-        }else if (key="1-1") {
+        }else if(key==7){
+          this.$router.push('/LoanShowPage');
+        }
+        else if (key="1-1") {
           this.$router.push('/SecurityCenter');
         }
       },

@@ -2,15 +2,15 @@
   <el-form ref="form" :model="pay" label-width="150px" >
     <el-form-item label="客户名称" style="width: 260px">
       <!--<el-input v-model="pay.name" style="width: 260px" ></el-input>-->
-      惠三磊
+      {{this.userName}}
     </el-form-item>
     <el-form-item label="银行卡号" style="width: 260px" >
       <!--<el-input v-model="pay.banknumber" style="width: 260px" ></el-input>-->
-      *******
+      {{this.creditCardNumbers}}
     </el-form-item>
     <el-form-item label="银行预留手机号" style="width: 350px">
       <!--<el-input v-model="pay.phone" style="width: 260px" ></el-input>-->
-      184*****0229
+      {{this.bankPhone}}
     </el-form-item>
 
     <el-form-item label="充值金额" style="width: 230px">
@@ -31,6 +31,9 @@
         name: "Pay3",
       data(){
           return{
+            creditCardNumbers:"",
+            bankPhone:"",
+            userName:"",
             pay:{
               name:"",
               banknumber:"",
@@ -44,13 +47,27 @@
       created(){
         this.pay.id=  this.$route.query.id
         this.pay.paymoney=  this.$route.query.paymoney
+        this.queryAccount();
         console.log(this.pay)
       },
       methods: {
+        queryAccount(){
+          var self = this;
+          this.$axios.post("api/hslApi/pay/queryAccount").then(function(res) {
+            if (res.data.code == 1000) {
+              self.creditCardNumbers = res.data.data.creditCardNumbers;
+              self.bankPhone = res.data.data.bankPhone;
+              self.userName = res.data.data.userName;
+            }else{
+              alert(res.data.data)
+            }
+          })
+        },
         commith(){
           var self = this;
           this.$axios.post("api/hslApi/pay/commith",this.$qs.stringify(this.pay)).then(function(res) {
             if (res.data.code == 1000) {
+
               self.generalassets = res.data.data;
               self.$router.push({
                 path: "/pay2",
@@ -61,7 +78,6 @@
                 }
               })
             }else{
-
               alert(res.data.data)
             }
           })

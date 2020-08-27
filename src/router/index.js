@@ -49,6 +49,12 @@ export default new Router({
       name: 'Index',
       component: Index,
       children:[
+
+        {
+          path: '/LoanShowPage',
+          name: 'LoanShowPage',
+          component: LoanShowPage,
+        },
         {
           path: '/',
           name: 'p2p_llk_video',
@@ -143,7 +149,7 @@ export default new Router({
           path: '/VentureCapital',
           name: 'VentureCapital',
           component: VentureCapital,
-        },
+        }
       ]
     },
     {
@@ -156,11 +162,6 @@ export default new Router({
       path: '/Graph',
       name: 'Graph',
       component: Graph,
-    },
-    {
-      path: '/LoanShowPage',
-      name: 'LoanShowPage',
-      component: LoanShowPage,
     }
   ]
 })

@@ -31,7 +31,7 @@
         label="借款金额"
         width="100">
         <template slot-scope="scope">
-          <span style="margin-left: 10px">{{ scope.row.borrowMoney }}</span>
+          <span style="margin-left: 10px">{{ scope.row.loanamount }}</span>
         </template>
       </el-table-column>
 
@@ -52,35 +52,7 @@
       </el-table-column>
 
 
-      <el-table-column
-        label="审核状态"
-        width="120">
-        <template slot-scope="scope">
 
-          <span style="margin-left: 10px">{{ scope.row.signGiveStatus }}</span>
-        </template>
-      </el-table-column>
-
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <p v-if="scope.row.status=='FIRST_TRIAL'">
-            <el-button
-              size="mini"
-              @click="firstTrial(scope.row.number)" ><i class="el-icon-edit"></i>初审</el-button>
-          </p>
-          <p v-if="scope.row.status=='CHECH_PASS'">
-            ——
-          </p>
-          <p v-if="scope.row.status=='NO_CHECK'">
-            ——
-          </p>
-          <p v-if="scope.row.status=='RECHECK'">
-            <el-button
-              size="mini"
-              @click="recheck(scope.row.number)" ><i class="el-icon-edit"></i>复审</el-button></p>
-
-        </template>
-      </el-table-column>
     </el-table>
 
     <!--分页-->
