@@ -113,7 +113,7 @@
               currentPage:this.pageParam.currentPage,
               pagesize:this.pageParam.pagesize,
             }
-            this.$axios.post('/capitalApi/openAnAccount/queryListPage',this.$qs.stringify(paramFenYe)).then(function (response) {
+            this.$axios.post('/api/capitalApi/openAnAccount/queryListPage',this.$qs.stringify(paramFenYe)).then(function (response) {
 
              // console.log(response.data.data)
               if (response.data.code==1000) {

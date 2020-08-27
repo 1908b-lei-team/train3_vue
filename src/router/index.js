@@ -22,6 +22,7 @@ import FirstTrial from '@/components/FirstTrial'
 import RecheckPage from '@/components/RecheckPage'
 import UserInfoPage from '@/components/UserInfoPage'
 import PneumaticControlPage from '@/components/PneumaticControlPage'
+import AdminIndex from '@/components/AdminIndex'
 
 Vue.use(Router)
 const originalPush = Router.prototype.push
@@ -72,11 +73,6 @@ export default new Router({
           name: 'Withdraw',
           component: Withdraw
         },
-        { path: '/VentureCapital',
-          name: 'VentureCapital',
-          component: VentureCapital,
-        },
-
         { path: '/Pay',
           name: 'Pay',
           component: Pay,
@@ -105,6 +101,24 @@ export default new Router({
           name: 'Loan',
           component: Loan,
         },
+
+      ]
+    },
+    {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+    },
+    {
+      path: '/AdminIndex',
+      name: 'AdminIndex',
+      component: AdminIndex,
+      children:[
+        {
+          path: '/UserInfoPage',
+          name: 'UserInfoPage',
+          component: UserInfoPage,
+        },
         {
           path: '/FirstTrial',
           name: 'FirstTrial',
@@ -115,22 +129,17 @@ export default new Router({
           name: 'RecheckPage',
           component: RecheckPage,
         },
-        {
-          path: '/UserInfoPage',
-          name: 'UserInfoPage',
-          component: UserInfoPage,
-        },
+
         {
           path: '/PneumaticControlPage',
           name: 'PneumaticControlPage',
           component: PneumaticControlPage,
-        }
-      ]
-    },
-    {
-      path: '/p2pRegister',
-      name: 'p2pRegister',
-      component: p2pRegister,
+        },
+        { path: '/VentureCapital',
+          name: 'VentureCapital',
+          component: VentureCapital,
+        },
+        ]
     },
     {
       path: '/SecurityCenter',
@@ -141,5 +150,7 @@ export default new Router({
       name: 'Graph',
       component: Graph,
     }
+
+
   ]
 })
