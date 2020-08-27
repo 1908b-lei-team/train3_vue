@@ -23,6 +23,7 @@ import RecheckPage from '@/components/RecheckPage'
 import UserInfoPage from '@/components/UserInfoPage'
 import PneumaticControlPage from '@/components/PneumaticControlPage'
 import AdminIndex from '@/components/AdminIndex'
+import LoanShowPage from '@/components/LoanShowPage.vue'
 
 Vue.use(Router)
 const originalPush = Router.prototype.push
@@ -137,14 +138,7 @@ export default new Router({
           path: '/SecurityCenter',
           name: 'SecurityCenter',
           component: SecurityCenter
-        }
-      ]
-    },
-    {
-      path: '/p2pRegister',
-      name: 'p2pRegister',
-      component: p2pRegister,
-      children:[
+        },
         {
           path: '/VentureCapital',
           name: 'VentureCapital',
@@ -153,9 +147,20 @@ export default new Router({
       ]
     },
     {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+      children:[]
+    },
+    {
       path: '/Graph',
       name: 'Graph',
       component: Graph,
+    },
+    {
+      path: '/LoanShowPage',
+      name: 'LoanShowPage',
+      component: LoanShowPage,
     }
   ]
 })
