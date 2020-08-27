@@ -3,9 +3,9 @@
     <div>
       <div>
         <el-divider content-position="left">标编号+标名称</el-divider>
-        <el-row :gutter="20">
-          <el-col :span="2"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.annualRate}}</span><br><span class="span-font-no2">年利率</span></div></el-col>
-          <el-col :span="2"><div class="grid-content bg-purple">
+        <el-row :gutter="50">
+          <el-col :span="4"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.annualRate}}</span><br><span class="span-font-no2">年利率</span></div></el-col>
+          <el-col :span="4"><div class="grid-content bg-purple">
                         <span style="margin-left: 10px"  class="span-font-no1" v-if="checkInfo.deadline=='3_STAGE'">
                   3期
                 </span>
@@ -20,22 +20,17 @@
                   12期
                 </span>
 
-
             <br>
             <span class="span-font-no2">期限</span>
 
-
-
-
-
           </div></el-col>
-          <el-col :span="2"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.borrowMoney}}</span><br><span class="span-font-no2">借款金额</span></div></el-col>
-          <el-col :span="2"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.atMost}}</span><br><span class="span-font-no2">可投</span></div></el-col>
+          <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.borrowMoney}}</span><br><span class="span-font-no2">借款金额</span></div></el-col>
+          <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no1">{{checkInfo.atMost}}</span><br><span class="span-font-no2">可投</span></div></el-col>
         </el-row>
-        <br/>
-        <el-row :gutter="20">
-          <el-col :span="2"><div class="grid-content bg-purple"><span class="span-font-no2" >借款人：</span><span class="span-info-1">{{checkInfo.username}}</span></div></el-col>
-          <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">还款方式：
+    <!--    <br/>-->
+        <el-row :gutter="50">
+          <el-col :span="4"><div class="grid-content bg-purple"><span class="span-font-no2" >借款人：</span><span class="span-info-1">{{checkInfo.username}}</span></div></el-col>
+          <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2">还款方式：
           </span>
                <span style="margin-left: 10px" v-if="checkInfo.repaymentType=='AVERAGE_CAPITAL_PLUS_INTEREST'">
                   等额本息
@@ -50,22 +45,22 @@
                   到期还清
                 </span>
           </div></el-col>
-          <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">起投金额：</span><span class="span-info-1">{{checkInfo.borrowMoney}}</span></div></el-col>
+          <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no2">起投金额：</span><span class="span-info-1">{{checkInfo.borrowMoney}}</span></div></el-col>
         </el-row>
         <el-row :gutter="20">
           <el-col :span="6"><div  style="width: 200px"><span class="span-font-no2" >发布时间：</span><span class="span-info-1">{{checkInfo.startTime}}</span></div></el-col>
-          <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">项目状态：</span><span class="span-info-1">{{checkInfo.status}}</span></div></el-col>
+          <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no2">项目状态：</span><span class="span-info-1">{{checkInfo.status}}</span></div></el-col>
         </el-row>
       </div>
       <div>
         <font style="color: red">
-          <el-divider content-position="left">项目详情</el-divider></font>
+          <el-divider content-position="center">项目详情</el-divider></font>
         <div style="margin-left: 30px">
           <el-divider content-position="left">借款人信息</el-divider>
-          <el-row :gutter="20">
-            <el-col :span="2"><div class="grid-content bg-purple"><span class="span-font-no2" >真实姓名：</span><span class="span-info-1">{{checkInfo.username}}</span></div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">年龄：</span><span class="span-info-1">{{checkInfo.userage}}</span></div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">学历：</span>
+          <el-row :gutter="30">
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2" >真实姓名：</span><span class="span-info-1">{{checkInfo.username}}</span></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple"><span class="span-font-no2">年龄：</span><span class="span-info-1">{{checkInfo.userage}}</span></div></el-col>
+            <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no2">学历：</span>
 
               <span style="margin-left: 10px" v-if="checkInfo.usereducation=='PRIMARY'">
                   小学
@@ -88,7 +83,7 @@
 
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">性别：</span>
+            <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no2">性别：</span>
               <span style="margin-left: 10px" v-if="checkInfo.usersex=='MAN'">
                   男
                 </span>
@@ -100,7 +95,7 @@
                 </span>
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">婚姻：</span>
+            <el-col :span="5"><div class="grid-content bg-purple"><span class="span-font-no2">婚姻：</span>
 
               <span style="margin-left: 10px" v-if="checkInfo.usermarriage=='MARRIED'">
                   已婚
@@ -113,7 +108,7 @@
           </el-row>
           <el-divider content-position="left">资产情况</el-divider>
           <el-row :gutter="20">
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2" >
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2" >
               工作年限：</span>
               <span style="margin-left: 10px" v-if="checkInfo.userworktime=='ONE_TO_THREE_YEAR'">
                   1~3年
@@ -129,7 +124,7 @@
                 </span>
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2">
               房产：</span>
 
               <span style="margin-left: 10px" v-if="checkInfo.userhouse=='TOTAL_PAY_HOME'">
@@ -142,7 +137,7 @@
 
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2">
               车产：</span>
               <span style="margin-left: 10px" v-if="checkInfo.uservehicle=='TOTAL_PAY_CAR'">
                   全款买车
@@ -152,7 +147,7 @@
                 </span>
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2">
               年收入：</span>
               <span style="margin-left: 10px" v-if="checkInfo.userincome=='ONE_TO_FIVE_THOUSAND'">
                   1~5万
@@ -180,7 +175,7 @@
 
 
             </div></el-col>
-            <el-col :span="3"><div class="grid-content bg-purple"><span class="span-font-no2">资产估值：</span><span class="span-info-1">{{checkInfo.userproperty}}</span></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"><span class="span-font-no2">资产估值：</span><span class="span-info-1">{{checkInfo.userproperty}}</span></div></el-col>
           </el-row>
 
           <el-divider content-position="left">借款说明</el-divider>
@@ -195,7 +190,7 @@
           <el-divider content-position="left">审批记录</el-divider>
         <div style="margin-left: 30px">
           <el-row :gutter="20">
-            <el-col :span="4"><div class="grid-content bg-purple"><span class="span-font-no2" >初审：</span><span class="span-info-1">审核人-飞狐教育，同意(改进为当前登录的用户)</span></div></el-col>
+            <el-col :span="16"><div class="grid-content bg-purple"><span class="span-font-no2" >初审：</span><span class="span-info-1">审核人-飞狐教育，同意(改进为当前登录的用户)</span></div></el-col>
             <el-col :span="4"><div class="grid-content bg-purple"><span class="span-font-no2">审批时间：</span><span class="span-info-1">{{checkInfo.reviewTime}}</span></div></el-col>
           </el-row>
         </div>
@@ -252,7 +247,7 @@
       <div>
         <el-divider content-position="left">风控建议</el-divider>
         <el-row :gutter="20">
-          <el-col :span="4">
+          <el-col :span="8">
             <div class="grid-content bg-purple">
               <el-rate
                 v-model="value"
@@ -273,7 +268,7 @@
         <br/>
 
         <el-row :gutter="20">
-          <el-col :span="2">
+          <el-col :span="5">
             <div class="grid-content bg-purple">
               发售时间：
             </div>
@@ -369,14 +364,14 @@
         },
       created(){
         //点击复审按钮，将当前风控信息ID传过来
-        this.id = this.$route.query.id;
+        this.number = this.$route.query.number;
         this.queryCheckInfo()
 
       },
       methods:{
           queryCheckInfo(){
             var self = this
-            this.$axios.post('/capitalApi/control/queryCheckInfo',this.$qs.stringify({"id":this.id})).then(function (response) {
+            this.$axios.post('/api/capitalApi/control/queryCheckInfo',this.$qs.stringify({"number":this.number})).then(function (response) {
 
               // console.log(response.data.data)
               if (response.data.code==1000) {
@@ -394,7 +389,7 @@
         agreeButt(status){
           var self = this
           var control = {
-            id:this.id,
+            number:this.number,
             aheadPostMoney:this.checkInfo.aheadPostMoney,
             loadPostMoney:this.checkInfo.loadPostMoney,
             serviceCharge:this.checkInfo.serviceCharge,
@@ -404,7 +399,7 @@
             startTime:this.checkInfo.startTime,
             status:status,
           }
-          this.$axios.post('/capitalApi/control/updateControl',this.$qs.stringify(control)).then(function (response) {
+          this.$axios.post('/api/capitalApi/control/updateControl',this.$qs.stringify(control)).then(function (response) {
 
             if (response.data.code==1000) {
               //跳转到展示页面

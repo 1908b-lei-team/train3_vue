@@ -104,7 +104,7 @@
           <p v-if="scope.row.status=='FIRST_TRIAL'">
           <el-button
             size="mini"
-            @click="firstTrial(scope.row.controId)" ><i class="el-icon-edit"></i>初审</el-button>
+            @click="firstTrial(scope.row.number)" ><i class="el-icon-edit"></i>初审</el-button>
         </p>
           <p v-if="scope.row.status=='CHECH_PASS'">
             ——
@@ -115,7 +115,7 @@
           <p v-if="scope.row.status=='RECHECK'">
             <el-button
               size="mini"
-              @click="recheck(scope.row.controId)" ><i class="el-icon-edit"></i>复审</el-button></p>
+              @click="recheck(scope.row.number)" ><i class="el-icon-edit"></i>复审</el-button></p>
 
         </template>
       </el-table-column>
@@ -166,7 +166,7 @@
             currentPage: this.pageParam.currentPage,
             pagesize: this.pageParam.pagesize,
           }
-          this.$axios.post('/capitalApi/control/queryListPage', this.$qs.stringify(paramFenYe)).then(function (response) {
+          this.$axios.post('/api/capitalApi/control/queryListPage', this.$qs.stringify(paramFenYe)).then(function (response) {
             console.log(response.data.data)
             if (response.data.code == 1000) {
               self.pageParam.total = response.data.data.count;
@@ -185,26 +185,28 @@
           this.pageParam.currentPage = val;
           this.queryList();
         },
-        firstTrial(id) {
+        firstTrial(number) {
+          //alert(number)
+
          // alert(id)
          // this.$router.push("/FirstTrial")
           this.$router.push(
             {
               path:"/FirstTrial",
               query:{
-                id:id,
+                number:number,
               }
             }
           );
         },
-        recheck(id) {
+        recheck(number) {
         //  alert(id)
           //this.$router.push("/RecheckPage")
           this.$router.push(
             {
               path:"/RecheckPage",
               query:{
-                id:id,
+                number:number,
               }
             }
           );

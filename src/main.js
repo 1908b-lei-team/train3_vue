@@ -34,6 +34,7 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
 axios.interceptors.request.use(function (config) {
   var token = Cookies.get('token')
   config.headers['x-auth'] = token
@@ -45,3 +46,4 @@ axios.interceptors.response.use(function (config) {
   }
   return config
 })
+
