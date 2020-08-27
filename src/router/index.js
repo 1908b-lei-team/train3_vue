@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import BorrowMoney from '@/components/BorrowMoney'
-import p2p_llk_calendar from '@/components/p2p_llk/p2p_llk_calendar'
 import RealName from '@/components/RealName'
 import Account from '@/components/Account'
 import SecurityCenter from '@/components/SecurityCenter'
@@ -49,6 +48,11 @@ export default new Router({
       component: Index,
       children:[
         {
+          path: '/',
+          name: 'p2p_llk_video',
+          component: p2p_llk_video
+        },
+        {
           path: '/RealName',
           name: 'RealName',
           component: RealName
@@ -62,16 +66,6 @@ export default new Router({
           path: '/SecurityCenter',
           name: 'SecurityCenter',
           component: SecurityCenter
-        },
-        {
-          path: '/',
-          name: 'p2p_llk_video',
-          component: p2p_llk_video
-        },
-        {
-          path: '/',
-          name: 'p2p_llk_calendar',
-          component: p2p_llk_calendar
         },
         {
           path: '/BorrowMoney',
@@ -147,5 +141,6 @@ export default new Router({
       name: 'p2pRegister',
       component: p2pRegister,
     },
+
   ]
 })

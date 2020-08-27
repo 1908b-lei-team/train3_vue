@@ -1,16 +1,37 @@
 <template>
   <div class="note" :style ="note">
-  <div class="video-content" style="width: 700px;height: 500px;margin-left: 28%">
-    <div class="video-player-content">
+    <!--视频-->
+      <div class="video-content" style="width: 700px;height: 500px;float: left;margin-left: 299px">
+        <div class="video-player-content">
 
-      <video-player class="video-player vjs-custom-skin"
-                    ref="videoPlayer"
-                    :playsinline="true"
-                    :options="playerOptions">
-      </video-player>
-
+          <video-player class="video-player vjs-custom-skin"
+                        ref="videoPlayer"
+                        :playsinline="true"
+                        :options="playerOptions">
+          </video-player>
+        </div>
+      </div>
+    <!--日历-->
+    <div  style="width: 500px;height: 100px;float: right">
+        <el-calendar>
+          <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+          <template
+            slot="dateCell"
+            slot-scope="{date, data}">
+            <p> <!--这里原本有动态绑定的class，去掉-->
+              {{ data.day.split('-').slice(1).join('-') }}<br /> {{dealMyDate(data.day)}}
+            </p>
+          </template>
+        </el-calendar>
+      </div>
+    <!--字体-->
+    <div style="margin-right: 290px">
+      <div class="textBox">
+        <transition name="slide">
+          <p class="text" :key="text.id"><font style="font-size: 22px">{{text.val}}</font></p>
+        </transition>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -20,15 +41,25 @@
   import 'video.js/dist/video-js.css'
     export default {
         name: "p2p_llk_video",
-      components: {
-        videoPlayer
-      },
+        components: {videoPlayer},
       data() {
         return {
+          textArr: [
+            '恒丰银行股份有限公司关于披露2020年上半年净稳定资金比例的公告',
+            '恒丰银行股份有限公司关于披露2020年上半年资本构成相关信息的公告',
+            '我行电子信贷合同专用章与我行的实物印章具有同等法律效力。',
+            '贷款市场报价利率报价行应于每月20日（遇节假日顺延）9时前',
+          ],
+          number: 0,
+          resDate: [
+            {"date":"2020-8-18","content":"放假"},
+            {"date":"2019-12-26","content":"去交电费"},
+            {"date":"2019-11-26","content":"去学习vue"}
+          ],
           note: {
-            backgroundImage: "url(" + require("../../assets/b9034dce678bd10b97212608ec6d1f92.jpg") + ")",
+             backgroundImage: "url(" + require("../../assets/b9034dce678bd10b97212608ec6d1f92.jpg") + ")",
             backgroundSize: "1600px auto",
-            height:'100vh',
+            height:'99vh',
           },
           playerOptions: {
             playbackRates: [0, 5, 1.0, 1.5, 2.0],
@@ -63,9 +94,72 @@
             }
           }
         }
+      },
+      mounted () {
+        this.startMove()
+      },
+      computed: {
+        text () {
+          return {
+            id: this.number,
+            val: this.textArr[this.number]
+          }
+        }
+      },
+      methods:{
+        startMove () {
+          // eslint-disable-next-line
+          let timer = setTimeout(() => {
+            if (this.number === 3) {
+              this.number = 0;
+            } else {
+              this.number += 1;
+            }
+            this.startMove();
+          }, 2000); // 滚动不需要停顿则将2000改成动画持续时间
+        },
+        dealMyDate(v) {
+          console.log(v)
+          let len = this.resDate.length
+          let res = ""
+          for(let i=0; i<len; i++){
+            if(this.resDate[i].date == v) {
+              res = this.resDate[i].content
+              break
+            }
+          }
+          return res
+        }
       }
     }
 </script>
 
 <style scoped>
+  h2 {
+    padding: 20px 0
+  }
+  .textBox {
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+  }
+  .text {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  .slide-enter-active, .slide-leave-active {
+    transition: all 0.5s linear;
+  }
+  .slide-enter{
+    transform: translateY(20px) scale(1);
+    opacity: 1;
+  }
+  .slide-leave-to {
+    transform: translateY(-20px) scale(0.8);
+    opacity: 0;
+  }
 </style>

@@ -48,7 +48,7 @@
         querybalance(){
           var self = this;
           this.$axios.post("api/hslApi/pay/querybalance",this.$qs.stringify({"id":this.pay.id})).then(function(res) {
-            if (res.data.code == 200) {
+            if (res.data.code == 1000) {
               console.log(res.data)
               self.balance = res.data.data
 
