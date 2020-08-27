@@ -12,18 +12,19 @@
             text-color="#fff"
             active-text-color="#ffd04b">
             <el-menu-item index="0" style="margin-left: 80px"><img src="../assets/images/54b3fd75a3400aa8249db0301ce14ce.png" height="57"/></el-menu-item>
-            <el-menu-item index="1" style="margin-left: 600px">首页</el-menu-item>
+            <el-menu-item index="1" style="margin-left: 490px">首页</el-menu-item>
             <el-menu-item index="2">我要出借</el-menu-item>
-            <el-menu-item index="3">我要借款</el-menu-item>
-            <el-menu-item index="4">我要还款</el-menu-item>
-            <el-menu-item index="5">注册/登录</el-menu-item>
+            <el-menu-item index="3">我的借款</el-menu-item>
+            <el-menu-item index="4">我要借款</el-menu-item>
+            <el-menu-item index="5">我要还款</el-menu-item>
+            <el-menu-item index="6">注册/登录</el-menu-item>
             <el-link type="info"@click="logout" style="float: right; margin-right: 20px; ">注销</el-link>
           </el-menu>
         </el-header>
 
         <el-container style="height: 690px">
           <!--左边-->
-          <el-aside width="299px">
+          <el-aside width="286px">
             <el-col :span="24" style="height: 100%">
               <el-menu
                 style="height: 100%"
@@ -91,10 +92,12 @@
         if(key==2){
           this.$router.push('/pay1');
         }else if(key==3){
-          this.$router.push('/Loan');
+          this.$router.push('/BorrowMoney');
         }else if(key==4){
-          this.$router.push('/log');
+          this.$router.push('/Loan');
         } else if(key==5){
+          this.$router.push('/log');
+        }else if(key==6){
           this.$router.push('/p2pLogin');
         }else if(key==1){
           this.$router.push('/index');

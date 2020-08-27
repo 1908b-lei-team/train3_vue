@@ -124,6 +124,11 @@ export default new Router({
           path: '/PneumaticControlPage',
           name: 'PneumaticControlPage',
           component: PneumaticControlPage,
+        },
+        {
+          path: '/SecurityCenter',
+          name: 'SecurityCenter',
+          component: SecurityCenter
         }
       ]
     },
@@ -131,11 +136,6 @@ export default new Router({
       path: '/p2pRegister',
       name: 'p2pRegister',
       component: p2pRegister,
-    },
-    {
-      path: '/SecurityCenter',
-      name: 'SecurityCenter',
-      component: SecurityCenter
     },
     { path: '/Graph',
       name: 'Graph',
