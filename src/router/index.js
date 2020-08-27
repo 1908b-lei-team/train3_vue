@@ -95,13 +95,11 @@ export default new Router({
           name: 'Histogram',
           component: Histogram,
         },
-
         {
           path: '/Loan',
           name: 'Loan',
           component: Loan,
-        },
-
+        }
       ]
     },
     {
@@ -135,22 +133,29 @@ export default new Router({
           name: 'PneumaticControlPage',
           component: PneumaticControlPage,
         },
-        { path: '/VentureCapital',
+        {
+          path: '/SecurityCenter',
+          name: 'SecurityCenter',
+          component: SecurityCenter
+        }
+      ]
+    },
+    {
+      path: '/p2pRegister',
+      name: 'p2pRegister',
+      component: p2pRegister,
+      children:[
+        {
+          path: '/VentureCapital',
           name: 'VentureCapital',
           component: VentureCapital,
         },
-        ]
+      ]
     },
     {
-      path: '/SecurityCenter',
-      name: 'SecurityCenter',
-      component: SecurityCenter
-    },
-    { path: '/Graph',
+      path: '/Graph',
       name: 'Graph',
       component: Graph,
     }
-
-
   ]
 })
