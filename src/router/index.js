@@ -99,10 +99,6 @@ export default new Router({
           name: 'Pay3',
           component: Pay3,
         },
-        { path: '/Graph',
-          name: 'Graph',
-          component: Graph,
-        },
         {
           path: '/Histogram',
           name: 'Histogram',
@@ -141,6 +137,10 @@ export default new Router({
       name: 'p2pRegister',
       component: p2pRegister,
     },
+    { path: '/Graph',
+      name: 'Graph',
+      component: Graph,
+    }
 
   ]
 })
