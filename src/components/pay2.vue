@@ -2,7 +2,7 @@
   <div>
   <el-form ref="pay" :model="pay" label-width="80px">
     <el-form-item >
-    账户余额 ￥ {{this.generalassets}}
+    可用余额 ￥ {{this.balance}}
       <el-button  size="mini"  @click="gotopay()" type="warning">充值</el-button>
     </el-form-item>
     <el-form-item >
@@ -40,6 +40,7 @@
       data() {
         return {
           generalassets: "",
+          balance: "",
           pay: {
             dealpassword: "",
             loanamount: "",
@@ -54,7 +55,7 @@
         this.pay.id=  this.$route.query.id
         this.querygeneralassets()
 
-        alert(this.pay.id)
+        //alert(this.pay.id)
 
       },
       methods: {
@@ -78,7 +79,7 @@
           return percentage === 100 ? '满' : `${percentage}%`;
         },
         gotopay(){
-          alert(this.pay.id)
+          //alert(this.pay.id)
           var self =this;
           self.$router.push({
             path: "/Pay",
@@ -94,7 +95,8 @@
           this.$axios.post("api/hslApi/pay/querygeneralassets",this.$qs.stringify({"id":this.pay.id})).then(function(res) {
               if (res.data.code == 1000) {
                 console.log(res.data)
-                self.generalassets = res.data.data;
+                //self.generalassets = res.data.data;
+                self.balance = res.data.data;
               }
             })
         },
