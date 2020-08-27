@@ -63,11 +63,6 @@ export default new Router({
           component: Account
         },
         {
-          path: '/SecurityCenter',
-          name: 'SecurityCenter',
-          component: SecurityCenter
-        },
-        {
           path: '/BorrowMoney',
           name: 'BorrowMoney',
           component: BorrowMoney,
@@ -141,6 +136,10 @@ export default new Router({
       name: 'p2pRegister',
       component: p2pRegister,
     },
-
+    {
+      path: '/SecurityCenter',
+      name: 'SecurityCenter',
+      component: SecurityCenter
+    },
   ]
 })

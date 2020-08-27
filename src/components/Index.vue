@@ -1,6 +1,7 @@
 <template>
     <div>
       <el-container>
+        <!--头部-->
         <el-header class="headerStyle">
           <el-menu
             :default-active="activeIndex2"
@@ -16,54 +17,46 @@
             <el-menu-item index="3">我要借款</el-menu-item>
             <el-menu-item index="4">我要还款</el-menu-item>
             <el-menu-item index="5">注册/登录</el-menu-item>
-            <el-menu-item index="6" @click="drawer = true">我的账户</el-menu-item>
             <el-link type="info"@click="logout" style="float: right; margin-right: 20px; ">注销</el-link>
           </el-menu>
         </el-header>
-        <el-container style="height: 690px">
 
-          <el-main style="float: left">
+        <el-container style="height: 690px">
+          <!--左边-->
+          <el-aside width="299px">
+            <el-col :span="24" style="height: 100%">
+              <el-menu
+                style="height: 100%"
+                class="el-menu-vertical-demo"
+                @open="handleOpen"
+                @close="handleClose"
+                @select="handleSelect"
+                background-color="#545c64"
+                text-color="#fff"
+                :default-openeds="openeds"
+              >
+                <el-submenu index="1">
+                  <template slot="title">
+                    <i class="el-icon-user-solid"></i>
+                    <span>个人信息管理</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="1-1"> <i class="el-icon-s-finance"></i>我的存款账户</el-menu-item>
+                    <el-menu-item index="1-2"> <i class="el-icon-wallet"></i>我的还款卡</el-menu-item>
+                    <el-menu-item index="1-3"> <i class="el-icon-coordinate"></i>我的合同</el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+              </el-menu>
+            </el-col>
+          </el-aside>
+
+          <!--中间-->
+          <el-main>
             <router-view></router-view>
           </el-main>
 
-
         </el-container>
       </el-container>
-      <div>
-        <el-radio-group v-model="direction" v-show="showRentPrise">
-          <el-radio label="ltr">从左往右开</el-radio>
-          <el-radio label="rtl">从右往左开</el-radio>
-          <el-radio label="ttb">从上往下开</el-radio>
-          <el-radio label="btt">从下往上开</el-radio>
-        </el-radio-group>
-
-        <el-drawer
-          title="个人账户展示页面"
-          :visible.sync="drawer"
-          :direction="direction"
-          >
-          <p>
-            <span class="el-icon-s-finance">
-              &nbsp<a href="">我的存款账户</a>
-            </span>
-          </p>
-          <p>
-            <span class="el-icon-wallet">
-              &nbsp<a href="">我的还款卡</a>
-            </span>
-          </p>
-          <p>
-            <span class="el-icon-user-solid">
-              &nbsp<a href="">我的合同</a>
-            </span>
-          </p>
-          <p>
-            <span class="el-icon-user-solid">
-              &nbsp<a @click="aaaaa($router.push('/SecurityCenter'))">个人信息管理</a>
-            </span>
-          </p>
-        </el-drawer>
-      </div>
     </div>
 </template>
 
@@ -72,23 +65,21 @@
     name: "Index",
     data() {
       return {
+        openeds:['1'],
         activeIndex2: '1',
-        drawer: false,
         direction: 'ltr',
-        showRentPrise:false,
-        item:[
-          "华谊兄弟霸王条款",
-          "爱奇艺在美遭调查",
-          "桥水基金重仓阿里",
-          "王兴退出三快在线",
-          "美团第二季度营收247亿，净利润22亿元"
-        ]
       };
     },
     created:function(){
       this.handleSelect(1);
     },
     methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      },
       logout(){
         if(confirm("确定注销吗?")){
           this.$axios.post("http://localhost:8085/user/logout.do").then(function(res){
@@ -107,11 +98,10 @@
           this.$router.push('/p2pLogin');
         }else if(key==1){
           this.$router.push('/index');
+        }else if (key="1-1") {
+          this.$router.push('/SecurityCenter');
         }
       },
-
-
-
     }
   }
   </script>
@@ -124,15 +114,14 @@
   }
 
   .el-aside {
-    background-color: #D3DCE6;
     color: #333;
-    text-align: center;
     line-height: 70px;
   }
 
   .el-main {
     padding: 0px;
     color: #333;
+    position: relative;
     text-align: center;
     line-height: 70px;
   }
@@ -152,7 +141,6 @@
   .headerStyle{
     padding: 0px;
   }
-
   .text {
     font-size: 14px;
   }
@@ -164,5 +152,8 @@
   .box-card {
     width: 300px;
     height: 300px;
+  }
+  .el-menu--horizontal>.el-menu-item{
+    margin-right: 20px;
   }
 </style>

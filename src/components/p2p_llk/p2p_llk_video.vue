@@ -1,7 +1,7 @@
 <template>
   <div class="note" :style ="note">
     <!--视频-->
-      <div class="video-content" style="width: 700px;height: 500px;float: left;margin-left: 299px">
+      <div class="video-content" style="width: 700px;height: 500px;float: left">
         <div class="video-player-content">
 
           <video-player class="video-player vjs-custom-skin"
@@ -25,7 +25,7 @@
         </el-calendar>
       </div>
     <!--字体-->
-    <div style="margin-right: 290px">
+    <div style="margin-right: 485px">
       <div class="textBox">
         <transition name="slide">
           <p class="text" :key="text.id"><font style="font-size: 22px">{{text.val}}</font></p>
