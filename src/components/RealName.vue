@@ -203,7 +203,7 @@
           this.$axios.post(`api/face/face/faceAdd`, formData)
             .then(res => {
               console.log(res.data)
-              if(res.data.code == 0){
+              if(res.data.code == 1000){
                 alert("添加成功")
               }else{
                 alert(res.data.message)

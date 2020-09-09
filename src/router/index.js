@@ -23,6 +23,7 @@ import RecheckPage from '@/components/RecheckPage'
 import UserInfoPage from '@/components/UserInfoPage'
 import PneumaticControlPage from '@/components/PneumaticControlPage'
 import AdminIndex from '@/components/AdminIndex'
+import LoanShowPage from '@/components/LoanShowPage.vue'
 
 Vue.use(Router)
 const originalPush = Router.prototype.push
@@ -48,6 +49,12 @@ export default new Router({
       name: 'Index',
       component: Index,
       children:[
+
+        {
+          path: '/LoanShowPage',
+          name: 'LoanShowPage',
+          component: LoanShowPage,
+        },
         {
           path: '/',
           name: 'p2p_llk_video',
@@ -99,14 +106,30 @@ export default new Router({
           path: '/Loan',
           name: 'Loan',
           component: Loan,
-        }
+        },
+        {
+          path: '/SecurityCenter',
+          name: 'SecurityCenter',
+          component: SecurityCenter
+        },
       ]
+
+
+
+
     },
     {
       path: '/p2pRegister',
       name: 'p2pRegister',
       component: p2pRegister,
     },
+
+
+
+
+
+
+
     {
       path: '/AdminIndex',
       name: 'AdminIndex',
@@ -133,10 +156,11 @@ export default new Router({
           name: 'PneumaticControlPage',
           component: PneumaticControlPage,
         },
+
         {
-          path: '/SecurityCenter',
-          name: 'SecurityCenter',
-          component: SecurityCenter
+          path: '/VentureCapital',
+          name: 'VentureCapital',
+          component: VentureCapital,
         }
       ]
     },
@@ -144,13 +168,7 @@ export default new Router({
       path: '/p2pRegister',
       name: 'p2pRegister',
       component: p2pRegister,
-      children:[
-        {
-          path: '/VentureCapital',
-          name: 'VentureCapital',
-          component: VentureCapital,
-        },
-      ]
+      children:[]
     },
     {
       path: '/Graph',
