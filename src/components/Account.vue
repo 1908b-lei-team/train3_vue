@@ -26,7 +26,7 @@
         <el-input v-model="account.bankPhone" placeholder="请输入客户名称" style="width: 240px"></el-input>
       </el-form-item>
 
-      <el-form-item label="交易密码1" prop="confirmPassword" style="width:240px">
+      <el-form-item label="交易密码11" prop="confirmPassword" style="width:240px">
         <el-input type="password" v-model="account.confirmPassword" autocomplete="off" placeholder="请输入交易密码" style="width: 240px"></el-input>
       </el-form-item>
 
